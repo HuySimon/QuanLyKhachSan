@@ -285,7 +285,7 @@ namespace HotelManagement.GUI
                             TTDD = row["TTDD"].ToString(),
                             GhiChu = row["GhiChu"].ToString(),
                             MaLPH = row["MaLPH"].ToString(),
-                            DaXoa = Convert.ToBoolean(row["DaXoa"])
+                            DaXoa = Convert.ToBoolean(row["DaXoa"])  
                         };
 
                         importedPhongs.Add(phong);
