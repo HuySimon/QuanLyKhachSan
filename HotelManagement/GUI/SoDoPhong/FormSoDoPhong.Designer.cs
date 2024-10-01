@@ -124,7 +124,7 @@ namespace HotelManagement.GUI
             this.PanelLocPhong.Dock = System.Windows.Forms.DockStyle.Left;
             this.PanelLocPhong.Location = new System.Drawing.Point(0, 0);
             this.PanelLocPhong.Name = "PanelLocPhong";
-            this.PanelLocPhong.Size = new System.Drawing.Size(237, 482);
+            this.PanelLocPhong.Size = new System.Drawing.Size(237, 794);
             this.PanelLocPhong.TabIndex = 2;
             // 
             // PanelTinhTrangPhong
@@ -144,7 +144,7 @@ namespace HotelManagement.GUI
             this.LabelTinhTrangDonDep.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelTinhTrangDonDep.Location = new System.Drawing.Point(7, 6);
             this.LabelTinhTrangDonDep.Name = "LabelTinhTrangDonDep";
-            this.LabelTinhTrangDonDep.Size = new System.Drawing.Size(235, 32);
+            this.LabelTinhTrangDonDep.Size = new System.Drawing.Size(185, 25);
             this.LabelTinhTrangDonDep.TabIndex = 0;
             this.LabelTinhTrangDonDep.Text = "Tình trạng dọn dẹp";
             // 
@@ -159,7 +159,7 @@ namespace HotelManagement.GUI
             this.CTRadioButtonTatCa.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonTatCa.Name = "CTRadioButtonTatCa";
             this.CTRadioButtonTatCa.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonTatCa.Size = new System.Drawing.Size(94, 32);
+            this.CTRadioButtonTatCa.Size = new System.Drawing.Size(78, 25);
             this.CTRadioButtonTatCa.TabIndex = 1;
             this.CTRadioButtonTatCa.TabStop = true;
             this.CTRadioButtonTatCa.Text = "Tất cả";
@@ -177,7 +177,7 @@ namespace HotelManagement.GUI
             this.CTRadioButtonDaDonDep.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonDaDonDep.Name = "CTRadioButtonDaDonDep";
             this.CTRadioButtonDaDonDep.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonDaDonDep.Size = new System.Drawing.Size(146, 32);
+            this.CTRadioButtonDaDonDep.Size = new System.Drawing.Size(118, 25);
             this.CTRadioButtonDaDonDep.TabIndex = 1;
             this.CTRadioButtonDaDonDep.Text = "Đã dọn dẹp";
             this.CTRadioButtonDaDonDep.UnCheckedColor = System.Drawing.Color.Gray;
@@ -194,7 +194,7 @@ namespace HotelManagement.GUI
             this.CTRadioButtonChuaDonDep.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonChuaDonDep.Name = "CTRadioButtonChuaDonDep";
             this.CTRadioButtonChuaDonDep.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonChuaDonDep.Size = new System.Drawing.Size(167, 32);
+            this.CTRadioButtonChuaDonDep.Size = new System.Drawing.Size(135, 25);
             this.CTRadioButtonChuaDonDep.TabIndex = 1;
             this.CTRadioButtonChuaDonDep.Text = "Chưa dọn dẹp";
             this.CTRadioButtonChuaDonDep.UnCheckedColor = System.Drawing.Color.Gray;
@@ -220,7 +220,7 @@ namespace HotelManagement.GUI
             this.LabelLoaiPhong.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelLoaiPhong.Location = new System.Drawing.Point(7, 6);
             this.LabelLoaiPhong.Name = "LabelLoaiPhong";
-            this.LabelLoaiPhong.Size = new System.Drawing.Size(142, 32);
+            this.LabelLoaiPhong.Size = new System.Drawing.Size(113, 25);
             this.LabelLoaiPhong.TabIndex = 0;
             this.LabelLoaiPhong.Text = "Loại phòng";
             // 
@@ -235,7 +235,7 @@ namespace HotelManagement.GUI
             this.CTRadioButtonTatCaLoaiPhong.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonTatCaLoaiPhong.Name = "CTRadioButtonTatCaLoaiPhong";
             this.CTRadioButtonTatCaLoaiPhong.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonTatCaLoaiPhong.Size = new System.Drawing.Size(194, 32);
+            this.CTRadioButtonTatCaLoaiPhong.Size = new System.Drawing.Size(156, 25);
             this.CTRadioButtonTatCaLoaiPhong.TabIndex = 1;
             this.CTRadioButtonTatCaLoaiPhong.TabStop = true;
             this.CTRadioButtonTatCaLoaiPhong.Text = "Tất cả loại phòng";
@@ -253,7 +253,7 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongVIPDoi.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongVIPDoi.Name = "CTRadioButtonPhongVIPDoi";
             this.CTRadioButtonPhongVIPDoi.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongVIPDoi.Size = new System.Drawing.Size(167, 32);
+            this.CTRadioButtonPhongVIPDoi.Size = new System.Drawing.Size(136, 25);
             this.CTRadioButtonPhongVIPDoi.TabIndex = 1;
             this.CTRadioButtonPhongVIPDoi.Text = "Phòng VIP đôi";
             this.CTRadioButtonPhongVIPDoi.UnCheckedColor = System.Drawing.Color.Gray;
@@ -270,7 +270,7 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongThuongDon.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongThuongDon.Name = "CTRadioButtonPhongThuongDon";
             this.CTRadioButtonPhongThuongDon.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongThuongDon.Size = new System.Drawing.Size(210, 32);
+            this.CTRadioButtonPhongThuongDon.Size = new System.Drawing.Size(170, 25);
             this.CTRadioButtonPhongThuongDon.TabIndex = 1;
             this.CTRadioButtonPhongThuongDon.Text = "Phòng thường đơn";
             this.CTRadioButtonPhongThuongDon.UnCheckedColor = System.Drawing.Color.Gray;
@@ -287,7 +287,7 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongVIPDon.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongVIPDon.Name = "CTRadioButtonPhongVIPDon";
             this.CTRadioButtonPhongVIPDon.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongVIPDon.Size = new System.Drawing.Size(173, 32);
+            this.CTRadioButtonPhongVIPDon.Size = new System.Drawing.Size(142, 25);
             this.CTRadioButtonPhongVIPDon.TabIndex = 1;
             this.CTRadioButtonPhongVIPDon.Text = "Phòng VIP đơn";
             this.CTRadioButtonPhongVIPDon.UnCheckedColor = System.Drawing.Color.Gray;
@@ -304,7 +304,7 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongThuongDoi.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongThuongDoi.Name = "CTRadioButtonPhongThuongDoi";
             this.CTRadioButtonPhongThuongDoi.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongThuongDoi.Size = new System.Drawing.Size(204, 32);
+            this.CTRadioButtonPhongThuongDoi.Size = new System.Drawing.Size(164, 25);
             this.CTRadioButtonPhongThuongDoi.TabIndex = 1;
             this.CTRadioButtonPhongThuongDoi.Text = "Phòng thường đôi";
             this.CTRadioButtonPhongThuongDoi.UnCheckedColor = System.Drawing.Color.Gray;
@@ -330,7 +330,7 @@ namespace HotelManagement.GUI
             this.LabelTrangThaiPhong.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelTrangThaiPhong.Location = new System.Drawing.Point(7, 6);
             this.LabelTrangThaiPhong.Name = "LabelTrangThaiPhong";
-            this.LabelTrangThaiPhong.Size = new System.Drawing.Size(210, 32);
+            this.LabelTrangThaiPhong.Size = new System.Drawing.Size(166, 25);
             this.LabelTrangThaiPhong.TabIndex = 0;
             this.LabelTrangThaiPhong.Text = "Trạng thái phòng";
             // 
@@ -345,7 +345,7 @@ namespace HotelManagement.GUI
             this.CTRadioButtonTatCaPhong.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonTatCaPhong.Name = "CTRadioButtonTatCaPhong";
             this.CTRadioButtonTatCaPhong.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonTatCaPhong.Size = new System.Drawing.Size(157, 32);
+            this.CTRadioButtonTatCaPhong.Size = new System.Drawing.Size(127, 25);
             this.CTRadioButtonTatCaPhong.TabIndex = 1;
             this.CTRadioButtonTatCaPhong.TabStop = true;
             this.CTRadioButtonTatCaPhong.Text = "Tất cả phòng";
@@ -363,7 +363,7 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongDangSuaChua.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongDangSuaChua.Name = "CTRadioButtonPhongDangSuaChua";
             this.CTRadioButtonPhongDangSuaChua.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongDangSuaChua.Size = new System.Drawing.Size(232, 32);
+            this.CTRadioButtonPhongDangSuaChua.Size = new System.Drawing.Size(187, 25);
             this.CTRadioButtonPhongDangSuaChua.TabIndex = 1;
             this.CTRadioButtonPhongDangSuaChua.Text = "Phòng đang sửa chữa";
             this.CTRadioButtonPhongDangSuaChua.UnCheckedColor = System.Drawing.Color.Gray;
@@ -380,7 +380,7 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongTrong.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongTrong.Name = "CTRadioButtonPhongTrong";
             this.CTRadioButtonPhongTrong.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongTrong.Size = new System.Drawing.Size(154, 32);
+            this.CTRadioButtonPhongTrong.Size = new System.Drawing.Size(125, 25);
             this.CTRadioButtonPhongTrong.TabIndex = 1;
             this.CTRadioButtonPhongTrong.Text = "Phòng trống";
             this.CTRadioButtonPhongTrong.UnCheckedColor = System.Drawing.Color.Gray;
@@ -397,7 +397,7 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongDangThue.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongDangThue.Name = "CTRadioButtonPhongDangThue";
             this.CTRadioButtonPhongDangThue.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongDangThue.Size = new System.Drawing.Size(194, 32);
+            this.CTRadioButtonPhongDangThue.Size = new System.Drawing.Size(157, 25);
             this.CTRadioButtonPhongDangThue.TabIndex = 1;
             this.CTRadioButtonPhongDangThue.Text = "Phòng đang thuê";
             this.CTRadioButtonPhongDangThue.UnCheckedColor = System.Drawing.Color.Gray;
@@ -414,7 +414,7 @@ namespace HotelManagement.GUI
             this.CTRadioButtonPhongDaDat.MinimumSize = new System.Drawing.Size(0, 21);
             this.CTRadioButtonPhongDaDat.Name = "CTRadioButtonPhongDaDat";
             this.CTRadioButtonPhongDaDat.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            this.CTRadioButtonPhongDaDat.Size = new System.Drawing.Size(161, 32);
+            this.CTRadioButtonPhongDaDat.Size = new System.Drawing.Size(130, 25);
             this.CTRadioButtonPhongDaDat.TabIndex = 1;
             this.CTRadioButtonPhongDaDat.Text = "Phòng đã đặt";
             this.CTRadioButtonPhongDaDat.UnCheckedColor = System.Drawing.Color.Gray;
@@ -435,7 +435,7 @@ namespace HotelManagement.GUI
             this.PanelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.PanelTitle.Location = new System.Drawing.Point(237, 0);
             this.PanelTitle.Name = "PanelTitle";
-            this.PanelTitle.Size = new System.Drawing.Size(896, 53);
+            this.PanelTitle.Size = new System.Drawing.Size(1007, 53);
             this.PanelTitle.TabIndex = 3;
             // 
             // label7
@@ -444,7 +444,7 @@ namespace HotelManagement.GUI
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(256, 5);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 20);
+            this.label7.Size = new System.Drawing.Size(56, 15);
             this.label7.TabIndex = 41;
             this.label7.Text = "Chọn giờ";
             // 
@@ -521,7 +521,7 @@ namespace HotelManagement.GUI
             this.LabelChonNgay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.LabelChonNgay.Location = new System.Drawing.Point(48, 5);
             this.LabelChonNgay.Name = "LabelChonNgay";
-            this.LabelChonNgay.Size = new System.Drawing.Size(79, 20);
+            this.LabelChonNgay.Size = new System.Drawing.Size(65, 15);
             this.LabelChonNgay.TabIndex = 10;
             this.LabelChonNgay.Text = "Chọn ngày";
             // 
@@ -569,7 +569,7 @@ namespace HotelManagement.GUI
             this.ctTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.ctTextBox1.PlaceholderText = "Nhập mã phòng cần tìm";
             this.ctTextBox1.ReadOnly = false;
-            this.ctTextBox1.Size = new System.Drawing.Size(235, 43);
+            this.ctTextBox1.Size = new System.Drawing.Size(235, 36);
             this.ctTextBox1.TabIndex = 1;
             this.ctTextBox1.TabStop = false;
             this.ctTextBox1.Texts = "";
@@ -598,7 +598,7 @@ namespace HotelManagement.GUI
             this.panelSoDoPhong.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSoDoPhong.Location = new System.Drawing.Point(237, 53);
             this.panelSoDoPhong.Name = "panelSoDoPhong";
-            this.panelSoDoPhong.Size = new System.Drawing.Size(896, 429);
+            this.panelSoDoPhong.Size = new System.Drawing.Size(1007, 741);
             this.panelSoDoPhong.TabIndex = 4;
             // 
             // flowLayoutPanel5
@@ -608,7 +608,7 @@ namespace HotelManagement.GUI
             this.flowLayoutPanel5.Location = new System.Drawing.Point(0, 175);
             this.flowLayoutPanel5.Margin = new System.Windows.Forms.Padding(20);
             this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-            this.flowLayoutPanel5.Size = new System.Drawing.Size(896, 0);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(1007, 0);
             this.flowLayoutPanel5.TabIndex = 29;
             // 
             // panel5
@@ -617,7 +617,7 @@ namespace HotelManagement.GUI
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 140);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(896, 35);
+            this.panel5.Size = new System.Drawing.Size(1007, 35);
             this.panel5.TabIndex = 28;
             // 
             // label5
@@ -626,7 +626,7 @@ namespace HotelManagement.GUI
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(12, 6);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(88, 32);
+            this.label5.Size = new System.Drawing.Size(70, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "Tầng 5";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -638,7 +638,7 @@ namespace HotelManagement.GUI
             this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 140);
             this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(20);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(896, 0);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(1007, 0);
             this.flowLayoutPanel4.TabIndex = 27;
             // 
             // panel4
@@ -647,7 +647,7 @@ namespace HotelManagement.GUI
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 105);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(896, 35);
+            this.panel4.Size = new System.Drawing.Size(1007, 35);
             this.panel4.TabIndex = 26;
             // 
             // label4
@@ -656,7 +656,7 @@ namespace HotelManagement.GUI
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(12, 6);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 32);
+            this.label4.Size = new System.Drawing.Size(70, 25);
             this.label4.TabIndex = 0;
             this.label4.Text = "Tầng 4";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -668,7 +668,7 @@ namespace HotelManagement.GUI
             this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 105);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(20);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(896, 0);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1007, 0);
             this.flowLayoutPanel3.TabIndex = 25;
             // 
             // panel3
@@ -677,7 +677,7 @@ namespace HotelManagement.GUI
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 70);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(896, 35);
+            this.panel3.Size = new System.Drawing.Size(1007, 35);
             this.panel3.TabIndex = 24;
             // 
             // label3
@@ -686,7 +686,7 @@ namespace HotelManagement.GUI
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 6);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(88, 32);
+            this.label3.Size = new System.Drawing.Size(70, 25);
             this.label3.TabIndex = 0;
             this.label3.Text = "Tầng 3";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -698,7 +698,7 @@ namespace HotelManagement.GUI
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 70);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(20);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(896, 0);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1007, 0);
             this.flowLayoutPanel2.TabIndex = 23;
             // 
             // panel2
@@ -707,7 +707,7 @@ namespace HotelManagement.GUI
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 35);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(896, 35);
+            this.panel2.Size = new System.Drawing.Size(1007, 35);
             this.panel2.TabIndex = 22;
             // 
             // label2
@@ -716,7 +716,7 @@ namespace HotelManagement.GUI
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 32);
+            this.label2.Size = new System.Drawing.Size(70, 25);
             this.label2.TabIndex = 0;
             this.label2.Text = "Tầng 2";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -728,7 +728,7 @@ namespace HotelManagement.GUI
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 35);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(20);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(896, 0);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1007, 0);
             this.flowLayoutPanel1.TabIndex = 21;
             // 
             // panel6
@@ -737,7 +737,7 @@ namespace HotelManagement.GUI
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(896, 35);
+            this.panel6.Size = new System.Drawing.Size(1007, 35);
             this.panel6.TabIndex = 20;
             // 
             // label1
@@ -746,7 +746,7 @@ namespace HotelManagement.GUI
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 32);
+            this.label1.Size = new System.Drawing.Size(67, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tầng 1";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -761,7 +761,7 @@ namespace HotelManagement.GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
-            this.ClientSize = new System.Drawing.Size(1133, 482);
+            this.ClientSize = new System.Drawing.Size(1244, 794);
             this.Controls.Add(this.panelSoDoPhong);
             this.Controls.Add(this.PanelTitle);
             this.Controls.Add(this.PanelLocPhong);

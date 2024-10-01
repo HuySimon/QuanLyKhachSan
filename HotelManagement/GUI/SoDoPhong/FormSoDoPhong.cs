@@ -476,5 +476,6 @@ namespace HotelManagement.GUI
             this.panelSoDoPhong.Show();
             LoadPhong(phongs);
         }
+
     }
 }

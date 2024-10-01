@@ -325,6 +325,7 @@ namespace HotelManagement.GUI
         private void HideButton()
         {
             Printer.Visible = false;
+            ctMaximize1.Visible = false;
             ctMinimize1.Visible = false;
             ctClose1.Visible = false;
         }
@@ -332,13 +333,9 @@ namespace HotelManagement.GUI
         private void ShowButton()
         {
             Printer.Visible = true;
+            ctMaximize1.Visible = true;
             ctMinimize1.Visible = true;
             ctClose1.Visible = true;
-        }
-
-        private void ctMinimize1_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void Printer_Click(object sender, EventArgs e)

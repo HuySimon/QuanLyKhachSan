@@ -94,7 +94,7 @@ namespace HotelManagement.CTControls
             this.LabelGhiChu.ForeColor = System.Drawing.Color.White;
             this.LabelGhiChu.Location = new System.Drawing.Point(150, 92);
             this.LabelGhiChu.Name = "LabelGhiChu";
-            this.LabelGhiChu.Size = new System.Drawing.Size(106, 23);
+            this.LabelGhiChu.Size = new System.Drawing.Size(83, 17);
             this.LabelGhiChu.TabIndex = 9;
             this.LabelGhiChu.Text = "Hư điều hòa";
             this.LabelGhiChu.Click += new System.EventHandler(this.CTRoomDangSuaChua_Click);
@@ -124,7 +124,7 @@ namespace HotelManagement.CTControls
             this.LabelTrangThaiLon.ForeColor = System.Drawing.Color.White;
             this.LabelTrangThaiLon.Location = new System.Drawing.Point(90, 48);
             this.LabelTrangThaiLon.Name = "LabelTrangThaiLon";
-            this.LabelTrangThaiLon.Size = new System.Drawing.Size(226, 41);
+            this.LabelTrangThaiLon.Size = new System.Drawing.Size(184, 32);
             this.LabelTrangThaiLon.TabIndex = 7;
             this.LabelTrangThaiLon.Text = "Đang sửa chữa";
             this.LabelTrangThaiLon.Click += new System.EventHandler(this.CTRoomDangSuaChua_Click);
@@ -140,7 +140,7 @@ namespace HotelManagement.CTControls
             this.LabelLoaiPhong.ForeColor = System.Drawing.Color.White;
             this.LabelLoaiPhong.Location = new System.Drawing.Point(177, 13);
             this.LabelLoaiPhong.Name = "LabelLoaiPhong";
-            this.LabelLoaiPhong.Size = new System.Drawing.Size(96, 23);
+            this.LabelLoaiPhong.Size = new System.Drawing.Size(76, 17);
             this.LabelLoaiPhong.TabIndex = 6;
             this.LabelLoaiPhong.Text = "Loại phòng";
             this.LabelLoaiPhong.Click += new System.EventHandler(this.CTRoomDangSuaChua_Click);
@@ -156,7 +156,7 @@ namespace HotelManagement.CTControls
             this.LabelMaPhong.ForeColor = System.Drawing.Color.White;
             this.LabelMaPhong.Location = new System.Drawing.Point(17, 14);
             this.LabelMaPhong.Name = "LabelMaPhong";
-            this.LabelMaPhong.Size = new System.Drawing.Size(71, 32);
+            this.LabelMaPhong.Size = new System.Drawing.Size(57, 25);
             this.LabelMaPhong.TabIndex = 5;
             this.LabelMaPhong.Text = "P100";
             this.LabelMaPhong.Click += new System.EventHandler(this.CTRoomDangSuaChua_Click);
@@ -172,7 +172,7 @@ namespace HotelManagement.CTControls
             this.LabelThoiGian.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.LabelThoiGian.Location = new System.Drawing.Point(50, 133);
             this.LabelThoiGian.Name = "LabelThoiGian";
-            this.LabelThoiGian.Size = new System.Drawing.Size(48, 23);
+            this.LabelThoiGian.Size = new System.Drawing.Size(38, 17);
             this.LabelThoiGian.TabIndex = 19;
             this.LabelThoiGian.Text = "0 giờ";
             this.LabelThoiGian.Click += new System.EventHandler(this.CTRoomDangSuaChua_Click);
@@ -188,7 +188,7 @@ namespace HotelManagement.CTControls
             this.LabelTrangThaiDonDep.ForeColor = System.Drawing.SystemColors.WindowFrame;
             this.LabelTrangThaiDonDep.Location = new System.Drawing.Point(179, 133);
             this.LabelTrangThaiDonDep.Name = "LabelTrangThaiDonDep";
-            this.LabelTrangThaiDonDep.Size = new System.Drawing.Size(100, 23);
+            this.LabelTrangThaiDonDep.Size = new System.Drawing.Size(79, 17);
             this.LabelTrangThaiDonDep.TabIndex = 21;
             this.LabelTrangThaiDonDep.Text = "Đã dọn dẹp";
             this.LabelTrangThaiDonDep.Click += new System.EventHandler(this.CTRoomDangSuaChua_Click);

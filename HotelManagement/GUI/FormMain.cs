@@ -429,23 +429,29 @@ namespace HotelManagement
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        
+        private void ctMaximize1_Click(object sender, EventArgs e)
+        {
+            CTMessageBox.Show("Ứng dụng chưa hỗ trợ kích thước toàn màn hình", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         private void panelControlBox_MouseHover(object sender, EventArgs e)
         {
             ctClose1.turnOn();
             ctMinimize1.turnOn();
+            ctMaximize1.turnOn();
         }
 
         private void panelControlBox_MouseLeave(object sender, EventArgs e)
         {
             ctClose1.turnOff();
             ctMinimize1.turnOff();
+            ctMaximize1.turnOff();
         }
 
         private void panelControlBox_MouseMove(object sender, MouseEventArgs e)
         {
             ctClose1.turnOn();
             ctMinimize1.turnOn();
+            ctMaximize1.turnOn();   
         }
 
         private void panelName_MouseDown(object sender, MouseEventArgs e)
@@ -681,21 +687,6 @@ namespace HotelManagement
         private void PictureBoxMenu_MouseLeave(object sender, EventArgs e)
         {
             PictureBoxMenu.BackColor = Color.Transparent;
-        }
-
-        private void ctMaximize1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelTenKhachSan_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ctMinimize1_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

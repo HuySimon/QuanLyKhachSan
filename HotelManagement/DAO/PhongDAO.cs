@@ -107,20 +107,5 @@ namespace HotelManagement.DAO
             
         }
 
-        public bool GetPhongById(string maPH)
-        {
-            try
-            {
-                // Tìm kiếm Phong theo Id
-                return db.Phongs.Any(p => p.MaPH == maPH && p.DaXoa == false);
-            }
-            catch (Exception ex)
-            {
-                // Xử lý ngoại lệ nếu có
-                Console.WriteLine("Có lỗi xảy ra: " + ex.Message);
-                return false;
-            }
-        }
-
     }
 }
