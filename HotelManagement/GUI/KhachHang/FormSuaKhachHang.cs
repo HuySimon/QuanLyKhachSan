@@ -14,7 +14,6 @@ using ApplicationSettings;
 using HotelManagement.BUS;
 using HotelManagement.CTControls;
 using HotelManagement.DTO;
-using HotelManagement.CTControls;
 
 namespace HotelManagement.GUI
 {

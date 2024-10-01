@@ -13,6 +13,7 @@ using HotelManagement.DTO;
 using HotelManagement.BUS;
 using HotelManagement.CTControls;
 using ApplicationSettings;
+using System.Text.RegularExpressions;
 
 namespace HotelManagement.GUI
 {
@@ -261,9 +262,25 @@ namespace HotelManagement.GUI
             string DiaChi = CTTextBoxDiaChi.Texts;
             string email = ctTextBoxEmail.Texts;
             string GioiTinh = ComboBoxGioiTinh.Texts;
+            string patternSDT = @"^0\d{9}$";
+            string patternEmail = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+            Regex checkEmail = new Regex(patternEmail);
+            Regex regex = new Regex(patternSDT);
             if (HoTen == "" || ChucVu == "" || Luong == "" || SDT == "" || CCCD == "" || DiaChi == "" || email == "" || GioiTinh == "  Giới tính")
             {
                 CTMessageBox.Show("Vui lòng nhập đầy đủ thông tin nhân viên.", "Thông báo",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!regex.IsMatch(SDT))
+            {
+                CTMessageBox.Show("Vui lòng nhập đầy đủ và đúng định dạng SĐT nhân viên.", "Thông báo",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!checkEmail.IsMatch(email))
+            {
+                CTMessageBox.Show("Vui lòng nhập đúng định dạng Email nhân viên.", "Thông báo",
                            MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }

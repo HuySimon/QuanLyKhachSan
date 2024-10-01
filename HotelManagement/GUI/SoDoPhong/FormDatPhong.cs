@@ -587,12 +587,6 @@ namespace HotelManagement.GUI
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                //if (regex.IsMatch(CTTextBoxNhapSDT.Texts))
-                //{
-                //    CTMessageBox.Show("Vui lòng nhập đúng định dạng SĐT.", "Thông báo",
-                //                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //    return;
-                //}
                 if (!regex.IsMatch(CTTextBoxNhapSDT.Texts))
                 {
                     CTMessageBox.Show("Vui lòng nhập đầy đủ và đúng định dạng SĐT.", "Thông báo",

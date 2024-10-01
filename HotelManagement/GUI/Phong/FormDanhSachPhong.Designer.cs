@@ -36,7 +36,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.grid = new System.Windows.Forms.DataGridView();
-            this.DoubleBuffered = true;
             this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,6 +47,7 @@
             this.ctPanel1 = new CTPanel.CTPanel();
             this.CTButtonThemPhong = new HotelManagement.CTControls.CTButton();
             this.CTTextBoxTimPhongTheoMa = new HotelManagement.CTControls.CTTextBox();
+            this.ButtonImport = new HotelManagement.CTControls.CTButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
@@ -131,6 +131,7 @@
             // 
             this.Column1.FillWeight = 50F;
             this.Column1.HeaderText = "";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -139,6 +140,7 @@
             // 
             this.Column2.FillWeight = 150F;
             this.Column2.HeaderText = "Mã phòng";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
@@ -146,6 +148,7 @@
             // 
             this.Column3.FillWeight = 225F;
             this.Column3.HeaderText = "Tình trạng";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             // 
@@ -153,6 +156,7 @@
             // 
             this.Column4.FillWeight = 225F;
             this.Column4.HeaderText = "Dọn dẹp";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
@@ -160,6 +164,7 @@
             // 
             this.Column5.FillWeight = 175F;
             this.Column5.HeaderText = "Loại phòng";
+            this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             // 
@@ -170,6 +175,7 @@
             this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column6.FillWeight = 75F;
             this.Column6.HeaderText = "Sửa";
+            this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
@@ -180,6 +186,7 @@
             this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column7.FillWeight = 50F;
             this.Column7.HeaderText = "Xóa";
+            this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
@@ -261,12 +268,34 @@
             this.CTTextBoxTimPhongTheoMa.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.CTTextBoxTimPhongTheoMa.PlaceholderText = "Nhập mã phòng cần tìm";
             this.CTTextBoxTimPhongTheoMa.ReadOnly = false;
-            this.CTTextBoxTimPhongTheoMa.Size = new System.Drawing.Size(244, 36);
+            this.CTTextBoxTimPhongTheoMa.Size = new System.Drawing.Size(244, 43);
             this.CTTextBoxTimPhongTheoMa.TabIndex = 8;
             this.CTTextBoxTimPhongTheoMa.TabStop = false;
             this.CTTextBoxTimPhongTheoMa.Texts = "";
             this.CTTextBoxTimPhongTheoMa.UnderlineedStyle = false;
             this.CTTextBoxTimPhongTheoMa._TextChanged += new System.EventHandler(this.CTTextBoxTimPhongTheoMa__TextChanged);
+            // 
+            // ButtonImport
+            // 
+            this.ButtonImport.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ButtonImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+            this.ButtonImport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+            this.ButtonImport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+            this.ButtonImport.BorderRadius = 10;
+            this.ButtonImport.BorderSize = 0;
+            this.ButtonImport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ButtonImport.FlatAppearance.BorderSize = 0;
+            this.ButtonImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonImport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonImport.ForeColor = System.Drawing.Color.Black;
+            this.ButtonImport.Location = new System.Drawing.Point(684, 30);
+            this.ButtonImport.Name = "ButtonImport";
+            this.ButtonImport.Size = new System.Drawing.Size(150, 40);
+            this.ButtonImport.TabIndex = 33;
+            this.ButtonImport.Text = "Nhập file Excel";
+            this.ButtonImport.TextColor = System.Drawing.Color.Black;
+            this.ButtonImport.UseVisualStyleBackColor = false;
+            this.ButtonImport.Click += new System.EventHandler(this.ButtonImport_Click_1);
             // 
             // FormDanhSachPhong
             // 
@@ -274,6 +303,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.ClientSize = new System.Drawing.Size(1260, 833);
+            this.Controls.Add(this.ButtonImport);
             this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.ctPanel1);
@@ -308,5 +338,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewImageColumn Column6;
         private System.Windows.Forms.DataGridViewImageColumn Column7;
+        private CTControls.CTButton ButtonImport;
     }
 }

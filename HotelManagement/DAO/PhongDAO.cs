@@ -53,6 +53,21 @@ namespace HotelManagement.DAO
             db.Phongs.AddOrUpdate(phong);
             db.SaveChanges();
         }
+
+        public bool GetPhongById(string maPH)
+        {
+            try
+            {
+                // Tìm kiếm Phong theo Id
+                return db.Phongs.Any(p => p.MaPH == maPH && p.DaXoa == false);
+            }
+            catch (Exception ex)
+            {
+                // Xử lý ngoại lệ nếu có
+                Console.WriteLine("Có lỗi xảy ra: " + ex.Message);
+                return false;
+            }
+        }
         public List<Phong> FindPhongTrong(DateTime Checkin, DateTime Checkout, List<CTDP> DSPhongThem)
         {
 
