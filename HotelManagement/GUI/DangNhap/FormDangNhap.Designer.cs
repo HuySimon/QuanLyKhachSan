@@ -77,7 +77,7 @@
             this.textBoxPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.textBoxPassword.PlaceholderText = "Mật khẩu";
             this.textBoxPassword.ReadOnly = false;
-            this.textBoxPassword.Size = new System.Drawing.Size(285, 52);
+            this.textBoxPassword.Size = new System.Drawing.Size(285, 45);
             this.textBoxPassword.TabIndex = 2;
             this.textBoxPassword.Texts = "";
             this.textBoxPassword.UnderlineedStyle = false;
@@ -101,7 +101,7 @@
             this.textBoxUsername.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.textBoxUsername.PlaceholderText = "Tên tài khoản";
             this.textBoxUsername.ReadOnly = false;
-            this.textBoxUsername.Size = new System.Drawing.Size(285, 52);
+            this.textBoxUsername.Size = new System.Drawing.Size(285, 45);
             this.textBoxUsername.TabIndex = 1;
             this.textBoxUsername.Texts = "";
             this.textBoxUsername.UnderlineedStyle = false;
@@ -113,7 +113,7 @@
             this.labelForgotPassword.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.labelForgotPassword.Location = new System.Drawing.Point(182, 310);
             this.labelForgotPassword.Name = "labelForgotPassword";
-            this.labelForgotPassword.Size = new System.Drawing.Size(157, 28);
+            this.labelForgotPassword.Size = new System.Drawing.Size(126, 21);
             this.labelForgotPassword.TabIndex = 9;
             this.labelForgotPassword.TabStop = true;
             this.labelForgotPassword.Text = "Quên mật khẩu?";
@@ -137,7 +137,6 @@
             this.ctEyePassword1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctEyePassword1.IsShow = false;
             this.ctEyePassword1.Location = new System.Drawing.Point(265, 262);
-            this.ctEyePassword1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctEyePassword1.Name = "ctEyePassword1";
             this.ctEyePassword1.Size = new System.Drawing.Size(30, 26);
             this.ctEyePassword1.TabIndex = 14;

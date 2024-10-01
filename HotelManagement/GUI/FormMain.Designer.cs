@@ -54,6 +54,7 @@
             this.panelName = new System.Windows.Forms.Panel();
             this.PictureBoxMenu = new System.Windows.Forms.PictureBox();
             this.panelControlBox = new System.Windows.Forms.Panel();
+            this.ctMaximize1 = new HotelManagement.CTControls.CTMaximize();
             this.ctMinimize1 = new HotelManagement.CTControls.CTMinimize();
             this.ctClose1 = new HotelManagement.CTControls.CTClose();
             this.labelTenKhachSan = new System.Windows.Forms.Label();
@@ -107,7 +108,7 @@
             this.labelPhienBan.AutoSize = true;
             this.labelPhienBan.Location = new System.Drawing.Point(1156, 11);
             this.labelPhienBan.Name = "labelPhienBan";
-            this.labelPhienBan.Size = new System.Drawing.Size(106, 20);
+            this.labelPhienBan.Size = new System.Drawing.Size(92, 17);
             this.labelPhienBan.TabIndex = 1;
             this.labelPhienBan.Text = "Version 1.0.0";
             // 
@@ -118,9 +119,9 @@
             this.labelBanQuyen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBanQuyen.Location = new System.Drawing.Point(6, 11);
             this.labelBanQuyen.Name = "labelBanQuyen";
-            this.labelBanQuyen.Size = new System.Drawing.Size(510, 28);
+            this.labelBanQuyen.Size = new System.Drawing.Size(398, 21);
             this.labelBanQuyen.TabIndex = 0;
-            this.labelBanQuyen.Text = "Copyright © 2024 SGU Coorporation. All rights reserved.";
+            this.labelBanQuyen.Text = "Copyright © 2022 TBT Coorporation. All rights reserved.";
             // 
             // Sidebar
             // 
@@ -432,7 +433,7 @@
             this.linkLabelDangXuat.LinkColor = System.Drawing.Color.Black;
             this.linkLabelDangXuat.Location = new System.Drawing.Point(3, 10);
             this.linkLabelDangXuat.Name = "linkLabelDangXuat";
-            this.linkLabelDangXuat.Size = new System.Drawing.Size(101, 28);
+            this.linkLabelDangXuat.Size = new System.Drawing.Size(80, 21);
             this.linkLabelDangXuat.TabIndex = 2;
             this.linkLabelDangXuat.TabStop = true;
             this.linkLabelDangXuat.Text = "Đăng xuất";
@@ -444,7 +445,7 @@
             this.LabelTenNguoiDung.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelTenNguoiDung.Location = new System.Drawing.Point(46, 99);
             this.LabelTenNguoiDung.Name = "LabelTenNguoiDung";
-            this.LabelTenNguoiDung.Size = new System.Drawing.Size(0, 32);
+            this.LabelTenNguoiDung.Size = new System.Drawing.Size(0, 25);
             this.LabelTenNguoiDung.TabIndex = 1;
             // 
             // PictureBoxUser
@@ -487,6 +488,7 @@
             // 
             this.panelControlBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.panelControlBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(145)))), ((int)(((byte)(153)))));
+            this.panelControlBox.Controls.Add(this.ctMaximize1);
             this.panelControlBox.Controls.Add(this.ctMinimize1);
             this.panelControlBox.Controls.Add(this.ctClose1);
             this.panelControlBox.Location = new System.Drawing.Point(1424, 3);
@@ -497,17 +499,26 @@
             this.panelControlBox.MouseHover += new System.EventHandler(this.panelControlBox_MouseHover);
             this.panelControlBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panelControlBox_MouseMove);
             // 
+            // ctMaximize1
+            // 
+            this.ctMaximize1.BackColor = System.Drawing.Color.Transparent;
+            this.ctMaximize1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctMaximize1.BackgroundImage")));
+            this.ctMaximize1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ctMaximize1.Location = new System.Drawing.Point(10, 6);
+            this.ctMaximize1.Name = "ctMaximize1";
+            this.ctMaximize1.Size = new System.Drawing.Size(15, 15);
+            this.ctMaximize1.TabIndex = 2;
+            this.ctMaximize1.Click += new System.EventHandler(this.ctMaximize1_Click);
+            // 
             // ctMinimize1
             // 
             this.ctMinimize1.BackColor = System.Drawing.Color.Transparent;
             this.ctMinimize1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctMinimize1.BackgroundImage")));
             this.ctMinimize1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctMinimize1.Location = new System.Drawing.Point(40, 6);
-            this.ctMinimize1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctMinimize1.Name = "ctMinimize1";
             this.ctMinimize1.Size = new System.Drawing.Size(15, 15);
             this.ctMinimize1.TabIndex = 1;
-            this.ctMinimize1.Load += new System.EventHandler(this.ctMinimize1_Load);
             this.ctMinimize1.Click += new System.EventHandler(this.ctMinimize1_Click);
             // 
             // ctClose1
@@ -516,7 +527,6 @@
             this.ctClose1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctClose1.BackgroundImage")));
             this.ctClose1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctClose1.Location = new System.Drawing.Point(71, 6);
-            this.ctClose1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctClose1.Name = "ctClose1";
             this.ctClose1.Size = new System.Drawing.Size(15, 15);
             this.ctClose1.TabIndex = 0;
@@ -530,14 +540,13 @@
             this.labelTenKhachSan.ForeColor = System.Drawing.Color.LightSalmon;
             this.labelTenKhachSan.Location = new System.Drawing.Point(68, 14);
             this.labelTenKhachSan.Name = "labelTenKhachSan";
-            this.labelTenKhachSan.Size = new System.Drawing.Size(309, 41);
+            this.labelTenKhachSan.Size = new System.Drawing.Size(227, 32);
             this.labelTenKhachSan.TabIndex = 2;
-            this.labelTenKhachSan.Text = "Khách sạn Hạo Nhiên";
-            this.labelTenKhachSan.Click += new System.EventHandler(this.labelTenKhachSan_Click);
+            this.labelTenKhachSan.Text = "Hotel Management";
             // 
             // FormMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
@@ -582,6 +591,7 @@
         private System.Windows.Forms.Panel Sidebar;
         private System.Windows.Forms.Panel panelName;
         private System.Windows.Forms.Panel panelControlBox;
+        private CTControls.CTMaximize ctMaximize1;
         private CTControls.CTMinimize ctMinimize1;
         private CTControls.CTClose ctClose1;
         private System.Windows.Forms.Label labelTenKhachSan;
