@@ -15,6 +15,7 @@ using HotelManagement.DTO;
 using ApplicationSettings;
 using HotelManagement.DAO;
 using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 namespace HotelManagement.GUI
 {
@@ -570,7 +571,9 @@ namespace HotelManagement.GUI
         private void CTButtonDatTruoc_Click(object sender, EventArgs e)
         {
             int flag = 0;
-            if(listPhongDaDat.Count==0)
+            string pattern = @"^0\d{9}$";
+            Regex regex = new Regex(pattern);
+            if (listPhongDaDat.Count==0)
             {
                 CTMessageBox.Show("Chưa thêm thông tin đặt phòng", "Thông báo",
                                 MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -584,9 +587,15 @@ namespace HotelManagement.GUI
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
-                if (CTTextBoxNhapSDT.Texts.Length != 10)
+                //if (regex.IsMatch(CTTextBoxNhapSDT.Texts))
+                //{
+                //    CTMessageBox.Show("Vui lòng nhập đúng định dạng SĐT.", "Thông báo",
+                //                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    return;
+                //}
+                if (!regex.IsMatch(CTTextBoxNhapSDT.Texts))
                 {
-                    CTMessageBox.Show("Vui lòng nhập đầy đủ SĐT.", "Thông báo",
+                    CTMessageBox.Show("Vui lòng nhập đầy đủ và đúng định dạng SĐT.", "Thông báo",
                                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
