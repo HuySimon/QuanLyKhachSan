@@ -249,42 +249,30 @@ namespace HotelManagement.GUI
                 {
                     string file = openFileDialog.FileName;
                     // Gọi hàm ImportFormExcelToDataTable để lấy dữ liệu từ Excel vào DataTable
-                    DataTable dataTable = PhongBUS.Instance.ImportFormExcelToDataTable(file);
+                    DataTable dataTable = DichVuBUS.Instance.ImportFormExcelToDataTable(file);
                     // Duyệt qua DataTable và chuyển đổi thành danh sách các đối tượng Phong
-                    List<Phong> importedPhongs = new List<Phong>();
+                    List<DichVu> importedDVs = new List<DichVu>();
                     foreach (DataRow row in dataTable.Rows)
                     {
-                        Phong phong = new Phong()
+                        DichVu dv = new DichVu()
                         {
-                            MaPH = row["MaPH"].ToString(),
-                            TTPH = row["TTPH"].ToString(),
-                            TTDD = row["TTDD"].ToString(),
-                            GhiChu = row["GhiChu"].ToString(),
-                            MaLPH = row["MaLPH"].ToString(),
+                            MaDV = row["MaDV"].ToString(),
+                            TenDV = row["TenDV"].ToString(),
+                            DonGia = Convert.ToDecimal(row["DonGia"]),
+                            SLConLai = Convert.ToInt32(row["SLConLai"]),
+                            LoaiDV = row["LoaiDV"].ToString(),
                             DaXoa = Convert.ToBoolean(row["DaXoa"])
                         };
-                        importedPhongs.Add(phong);
+                        importedDVs.Add(dv);
                     }
                     // Kiểm tra và lưu dữ liệu vào cơ sở dữ liệu
-                    foreach (var phong in importedPhongs)
+                    foreach (var dv in importedDVs)
                     {
-                        PhongBUS.Instance.UpdateOrAdd(phong);
-                        // Kiểm tra xem phòng có tồn tại trong hệ thống hay chưa
-                        //var existingPhong = PhongBUS.Instance.GetPhongByMaPH(phong.MaPH);
-                        //if (existingPhong != false)
-                        //{
-                        //    // Nếu Phòng đã tồn tại trong CSDL, thực hiện cập nhật
-                        //    PhongBUS.Instance.UpdateOrAdd(phong);
-                        //}
-                        //else
-                        //{
-                        //    // Nếu Phòng chưa tồn tại, thêm mới vào CSDL
-                        //    PhongBUS.Instance.UpdateOrAdd(phong);
-                        //}
+                        DichVuBUS.Instance.UpdateORAdd(dv);
                     }
+                    LoadALLDV();
                     CTMessageBox.Show("Nhập file thành công.", "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LoadALLDV();
                 }
             }
             catch (Exception ex)
