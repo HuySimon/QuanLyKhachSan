@@ -233,5 +233,47 @@ namespace HotelManagement.GUI
         {
             grid.Cursor = Cursors.Default;
         }
+
+        private void buttonImport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Tạo OpenFileDialog để chọn tệp Excel
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
+                openFileDialog.Title = "Chọn file Excel";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string file = openFileDialog.FileName;
+                    // Gọi hàm ImportFormExcelToDataTable để lấy dữ liệu từ Excel vào DataTable
+                    DataTable dataTable = TienNghiBUS.Instance.ImportFormExcelToDataTable(file);
+                    // Duyệt qua DataTable và chuyển đổi thành danh sách các đối tượng Phong
+                    List<TienNghi> importedTienNghis = new List<TienNghi>();
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        TienNghi tienNghi = new TienNghi()
+                        {
+                            MaTN = row["MaTN"].ToString(),
+                            TenTN = row["TenTN"].ToString(),
+                            DaXoa = Convert.ToBoolean(row["DaXoa"])
+                        };
+                        importedTienNghis.Add(tienNghi);
+                    }
+                    // Kiểm tra và lưu dữ liệu vào cơ sở dữ liệu
+                    foreach (var tienNghi in importedTienNghis)
+                    {
+                        TienNghiBUS.Instance.InsertOrUpdate(tienNghi);
+                    }
+                    CTMessageBox.Show("Nhập file thành công.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadAllData();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

@@ -50,21 +50,18 @@ namespace HotelManagement
         {
             ctClose1.turnOn();
             ctMinimize1.turnOn();
-            ctMaximize1.turnOn();
         }
 
         private void panelControlBox_MouseLeave(object sender, EventArgs e)
         {
             ctClose1.turnOff();
             ctMinimize1.turnOff();
-            ctMaximize1.turnOff();
         }
 
         private void panelControlBox_MouseMove(object sender, MouseEventArgs e)
         {
             ctClose1.turnOn();
             ctMinimize1.turnOn();
-            ctMaximize1.turnOn();
         }
         //Form Move
         private void pictureBoxIcon_MouseDown(object sender, MouseEventArgs e)
@@ -307,5 +304,6 @@ namespace HotelManagement
             panelControlBox.BringToFront();
             labelCorporation.BringToFront();
         }
+
     }
 }

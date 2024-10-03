@@ -41,6 +41,7 @@ namespace HotelManagement.GUI
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.buttonImport = new HotelManagement.CTControls.CTButton();
             this.buttonExport = new HotelManagement.CTControls.CTButton();
             this.ctPanel1 = new CTPanel.CTPanel();
             this.CTButtonThemTienNghi = new HotelManagement.CTControls.CTButton();
@@ -125,6 +126,7 @@ namespace HotelManagement.GUI
             // 
             this.Column1.FillWeight = 50F;
             this.Column1.HeaderText = "";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -133,6 +135,7 @@ namespace HotelManagement.GUI
             // 
             this.Column2.FillWeight = 175F;
             this.Column2.HeaderText = "Mã tiện nghi";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
@@ -140,6 +143,7 @@ namespace HotelManagement.GUI
             // 
             this.Column3.FillWeight = 225F;
             this.Column3.HeaderText = "Tên tiện nghi";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -151,6 +155,7 @@ namespace HotelManagement.GUI
             this.Column4.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column4.FillWeight = 75F;
             this.Column4.HeaderText = "Sửa";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
@@ -161,8 +166,31 @@ namespace HotelManagement.GUI
             this.Column5.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column5.FillWeight = 50F;
             this.Column5.HeaderText = "Xóa";
+            this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            // 
+            // buttonImport
+            // 
+            this.buttonImport.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+            this.buttonImport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+            this.buttonImport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+            this.buttonImport.BorderRadius = 10;
+            this.buttonImport.BorderSize = 0;
+            this.buttonImport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonImport.FlatAppearance.BorderSize = 0;
+            this.buttonImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonImport.ForeColor = System.Drawing.Color.Black;
+            this.buttonImport.Location = new System.Drawing.Point(649, 30);
+            this.buttonImport.Name = "buttonImport";
+            this.buttonImport.Size = new System.Drawing.Size(150, 40);
+            this.buttonImport.TabIndex = 33;
+            this.buttonImport.Text = "Nhập file Excel";
+            this.buttonImport.TextColor = System.Drawing.Color.Black;
+            this.buttonImport.UseVisualStyleBackColor = false;
+            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
             // 
             // buttonExport
             // 
@@ -242,7 +270,7 @@ namespace HotelManagement.GUI
             this.CTTextBoxTimTenTienNghi.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.CTTextBoxTimTenTienNghi.PlaceholderText = "Nhập tên tiện nghi cần tìm";
             this.CTTextBoxTimTenTienNghi.ReadOnly = false;
-            this.CTTextBoxTimTenTienNghi.Size = new System.Drawing.Size(244, 36);
+            this.CTTextBoxTimTenTienNghi.Size = new System.Drawing.Size(244, 43);
             this.CTTextBoxTimTenTienNghi.TabIndex = 16;
             this.CTTextBoxTimTenTienNghi.TabStop = false;
             this.CTTextBoxTimTenTienNghi.Texts = "";
@@ -254,6 +282,7 @@ namespace HotelManagement.GUI
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.ClientSize = new System.Drawing.Size(1260, 833);
+            this.Controls.Add(this.buttonImport);
             this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.ctPanel1);
@@ -285,5 +314,6 @@ namespace HotelManagement.GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewImageColumn Column4;
         private System.Windows.Forms.DataGridViewImageColumn Column5;
+        private CTControls.CTButton buttonImport;
     }
 }

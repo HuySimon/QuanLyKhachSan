@@ -57,7 +57,6 @@ namespace HotelManagement
             this.panelLogin = new HotelManagement.FormLogin.DoubleBufferPanel();
             this.PanelLoginContent = new HotelManagement.FormLogin.DoubleBufferPanel();
             this.panelControlBox = new HotelManagement.FormLogin.DoubleBufferPanel();
-            this.ctMaximize1 = new HotelManagement.CTControls.CTMaximize();
             this.ctMinimize1 = new HotelManagement.CTControls.CTMinimize();
             this.ctClose1 = new HotelManagement.CTControls.CTClose();
             this.labelCorporation = new System.Windows.Forms.Label();
@@ -105,24 +104,12 @@ namespace HotelManagement
             // panelControlBox
             // 
             this.panelControlBox.BackColor = System.Drawing.Color.White;
-            this.panelControlBox.Controls.Add(this.ctMaximize1);
             this.panelControlBox.Controls.Add(this.ctMinimize1);
             this.panelControlBox.Controls.Add(this.ctClose1);
             this.panelControlBox.Location = new System.Drawing.Point(291, 1);
             this.panelControlBox.Name = "panelControlBox";
             this.panelControlBox.Size = new System.Drawing.Size(95, 30);
             this.panelControlBox.TabIndex = 5;
-            // 
-            // ctMaximize1
-            // 
-            this.ctMaximize1.BackColor = System.Drawing.Color.Transparent;
-            this.ctMaximize1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctMaximize1.BackgroundImage")));
-            this.ctMaximize1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ctMaximize1.Enabled = false;
-            this.ctMaximize1.Location = new System.Drawing.Point(10, 7);
-            this.ctMaximize1.Name = "ctMaximize1";
-            this.ctMaximize1.Size = new System.Drawing.Size(15, 15);
-            this.ctMaximize1.TabIndex = 2;
             // 
             // ctMinimize1
             // 
@@ -131,6 +118,7 @@ namespace HotelManagement
             this.ctMinimize1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctMinimize1.Enabled = false;
             this.ctMinimize1.Location = new System.Drawing.Point(40, 6);
+            this.ctMinimize1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctMinimize1.Name = "ctMinimize1";
             this.ctMinimize1.Size = new System.Drawing.Size(15, 15);
             this.ctMinimize1.TabIndex = 1;
@@ -142,6 +130,7 @@ namespace HotelManagement
             this.ctClose1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("ctClose1.BackgroundImage")));
             this.ctClose1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ctClose1.Location = new System.Drawing.Point(71, 6);
+            this.ctClose1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ctClose1.Name = "ctClose1";
             this.ctClose1.Size = new System.Drawing.Size(15, 15);
             this.ctClose1.TabIndex = 0;
@@ -154,7 +143,7 @@ namespace HotelManagement
             this.labelCorporation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(152)))), ((int)(((byte)(162)))));
             this.labelCorporation.Location = new System.Drawing.Point(224, 508);
             this.labelCorporation.Name = "labelCorporation";
-            this.labelCorporation.Size = new System.Drawing.Size(155, 21);
+            this.labelCorporation.Size = new System.Drawing.Size(197, 28);
             this.labelCorporation.TabIndex = 4;
             this.labelCorporation.Text = "TBT CORPORATION";
             // 
@@ -201,7 +190,6 @@ namespace HotelManagement
 
         }
         private System.Windows.Forms.PictureBox pictureBoxIcon;
-        private CTControls.CTMaximize ctMaximize1;
         private CTControls.CTMinimize ctMinimize1;
         private CTControls.CTClose ctClose1;
         private System.Windows.Forms.Label labelCorporation;
