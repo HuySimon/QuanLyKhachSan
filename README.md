@@ -60,10 +60,4 @@ Language: Vietnamese.
 ![Statistic](/Demo%20UI/Statistic.PNG)
 
 
-## Authors
 
-[Nguyễn Phúc Bình](https://github.com/leesoonduck3009)
-
-[Phan Tuấn Thành](https://github.com/thanhpt1110)
-
-[Lê Thanh Tuấn](https://github.com/thtuanlegithub)
