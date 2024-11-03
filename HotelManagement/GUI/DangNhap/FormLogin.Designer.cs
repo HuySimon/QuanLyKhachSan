@@ -143,9 +143,9 @@ namespace HotelManagement
             this.labelCorporation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(152)))), ((int)(((byte)(162)))));
             this.labelCorporation.Location = new System.Drawing.Point(224, 508);
             this.labelCorporation.Name = "labelCorporation";
-            this.labelCorporation.Size = new System.Drawing.Size(197, 28);
+            this.labelCorporation.Size = new System.Drawing.Size(199, 28);
             this.labelCorporation.TabIndex = 4;
-            this.labelCorporation.Text = "TBT CORPORATION";
+            this.labelCorporation.Text = "SGU CORPORATION";
             // 
             // pictureBoxIcon
             // 

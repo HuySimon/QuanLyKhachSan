@@ -118,9 +118,9 @@
             this.labelBanQuyen.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelBanQuyen.Location = new System.Drawing.Point(6, 11);
             this.labelBanQuyen.Name = "labelBanQuyen";
-            this.labelBanQuyen.Size = new System.Drawing.Size(501, 28);
+            this.labelBanQuyen.Size = new System.Drawing.Size(510, 28);
             this.labelBanQuyen.TabIndex = 0;
-            this.labelBanQuyen.Text = "Copyright © 2022 TBT Coorporation. All rights reserved.";
+            this.labelBanQuyen.Text = "Copyright © 2024 SGU Coorporation. All rights reserved.";
             // 
             // Sidebar
             // 
