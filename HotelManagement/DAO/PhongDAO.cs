@@ -30,11 +30,18 @@ namespace HotelManagement.DAO
                 return db.Phongs.Find(MaPh);
             
         }
-        public List<Phong> FindPhongWithMaPH(string MaPh)
+
+        public List<Phong> FindPhongWithMaPH(string searchTerm)
         {
 
-                return db.Phongs.Where(p => p.MaPH.Contains(MaPh) && p.DaXoa == false).ToList();
-            
+                return db.Phongs.Where(p =>
+                (p.MaPH.Contains(searchTerm) ||
+                 p.TTPH.Contains(searchTerm) ||
+                 p.TTDD.Contains(searchTerm) ||
+                 p.LoaiPhong.TenLPH.Contains(searchTerm)) &&
+                 p.DaXoa == false
+                 ).ToList();
+
         }
 
         public void UpdateOrAdd(Phong phong)

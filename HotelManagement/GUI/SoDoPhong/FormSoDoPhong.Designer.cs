@@ -567,7 +567,7 @@ namespace HotelManagement.GUI
             this.ctTextBox1.Padding = new System.Windows.Forms.Padding(40, 7, 7, 7);
             this.ctTextBox1.PasswordChar = false;
             this.ctTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.ctTextBox1.PlaceholderText = "Nhập mã phòng cần tìm";
+            this.ctTextBox1.PlaceholderText = "Nhập thông tin cần tìm";
             this.ctTextBox1.ReadOnly = false;
             this.ctTextBox1.Size = new System.Drawing.Size(235, 36);
             this.ctTextBox1.TabIndex = 1;
