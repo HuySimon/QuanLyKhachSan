@@ -33,6 +33,8 @@ namespace HotelManagement.DTO
         [Column(TypeName = "money")]
         public decimal GiaGio { get; set; }
 
+        public bool? DaXoa { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Phong> Phongs { get; set; }
     }

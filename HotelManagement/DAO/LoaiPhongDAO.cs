@@ -21,7 +21,7 @@ namespace HotelManagement.DAO
         public List<LoaiPhong> GetLoaiPhongs()
         {
 
-                return db.LoaiPhongs.ToList();
+                return db.LoaiPhongs.Where(p => p.DaXoa == false).ToList();
             
         }    
         public LoaiPhong getLoaiPhong(string MaLP)

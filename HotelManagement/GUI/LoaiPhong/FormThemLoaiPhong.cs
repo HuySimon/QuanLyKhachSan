@@ -1,4 +1,6 @@
-﻿using HotelManagement.CTControls;
+﻿using HotelManagement.BUS;
+using HotelManagement.CTControls;
+using HotelManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -220,7 +222,27 @@ namespace HotelManagement.GUI
             }
             try
             {
-                // Function here
+                string newCode;
+                List<LoaiPhong> roomTypes = LoaiPhongBUS.Instance.GetLoaiPhongs();
+                if (roomTypes.Count == 0)
+                    newCode = "LP01";
+
+                var maxCode = roomTypes
+                    .Select(rt => int.Parse(rt.MaLPH.Substring(2))) // Lấy phần số từ mã "LP##"
+                    .Max();
+
+                int newCodeNumber = maxCode + 1;
+                 newCode = $"LP{newCodeNumber:D2}";
+
+                LoaiPhong loaiPhong = new LoaiPhong();
+                loaiPhong.MaLPH = newCode;
+                loaiPhong.TenLPH = TenLP;
+                loaiPhong.SoGiuong = int.Parse(SoGiuong);
+                loaiPhong.SoNguoiToiDa = int.Parse(SoNguoi);
+                loaiPhong.GiaGio = decimal.Parse(GiaGio);
+                loaiPhong.GiaNgay = decimal.Parse(GiaNgay);
+                loaiPhong.DaXoa = false;
+                LoaiPhongBUS.Instance.AddOrUpdate(loaiPhong);
             }
             catch (Exception)
             {

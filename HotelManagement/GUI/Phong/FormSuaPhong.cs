@@ -66,9 +66,27 @@ namespace HotelManagement.GUI
             if(phong.GhiChu!="")
             {
                 this.ctTextBoxGhiChu.RemovePlaceholder();
-            }    
+            }
+
+            var loaiPhongs = LoaiPhongBUS.Instance.GetLoaiPhongs();
+            this.comboBoxLoaiPhong.DataSource = loaiPhongs;
+            this.comboBoxLoaiPhong.DisplayMember = "TenLPH"; 
+            this.comboBoxLoaiPhong.ValueMember = "MaLPH";    
+
+            this.comboBoxLoaiPhong.SelectedIndex = -1;
+
+            var loaiPhong = loaiPhongs.FirstOrDefault(lp => lp.MaLPH == phong.LoaiPhong.MaLPH);
+            if (loaiPhong != null)
+            {
+                this.comboBoxLoaiPhong.Texts = loaiPhong.TenLPH;
+            }
+            else
+            {
+                MessageBox.Show("Loại phòng không tồn tại trong danh sách!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
             this.comboBoxDonDep.Texts = phong.TTDD;
-            this.comboBoxLoaiPhong.Texts = phong.LoaiPhong.TenLPH;
             this.comboBoxTinhTrangPhong.Texts = phong.TTPH;
             this.ctTextBoxGhiChu.Texts = phong.GhiChu;
         }
@@ -238,7 +256,8 @@ namespace HotelManagement.GUI
             string DonDep = comboBoxDonDep.Texts;
             string LoaiPhong = comboBoxLoaiPhong.Texts;
             string GhiChu = ctTextBoxGhiChu.Texts;
-            if (TinhTrang == "Tình trạng phòng" || DonDep == "Tình trạng dọn dẹp" || LoaiPhong == "Loại phòng" || GhiChu == "")
+
+            if (TinhTrang == "Tình trạng phòng" || DonDep == "Tình trạng dọn dẹp" || LoaiPhong == "Loại phòng")
             {
                 CTMessageBox.Show("Vui lòng nhập đầy đủ thông tin phòng.", "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -248,14 +267,19 @@ namespace HotelManagement.GUI
             {
                 phong.TTDD = DonDep;
                 phong.GhiChu = GhiChu;
-                if (LoaiPhong == "Thường đơn")
-                    phong.MaLPH = "NOR01";
-                else if (LoaiPhong == "Thường đôi")
-                    phong.MaLPH = "NOR02";
-                else if (LoaiPhong == "Vip đơn")
-                    phong.MaLPH = "VIP01";
+
+                var loaiPhongs = LoaiPhongBUS.Instance.GetLoaiPhongs();
+                var selectedLoaiPhong = loaiPhongs.FirstOrDefault(lp => lp.TenLPH == LoaiPhong);
+
+                if (selectedLoaiPhong != null)
+                {
+                    string maLPH = selectedLoaiPhong.MaLPH;
+                    phong.MaLPH = maLPH;
+                }
                 else
-                    phong.MaLPH = "VIP02";
+                {
+                    MessageBox.Show("Loại phòng không tồn tại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 phong.TTPH = TinhTrang;
                 PhongBUS.Instance.UpdateOrAdd(phong);
 

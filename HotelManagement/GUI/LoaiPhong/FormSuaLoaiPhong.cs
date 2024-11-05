@@ -248,7 +248,10 @@ namespace HotelManagement.GUI
             }
             try
             {
-                loaiPhong.GiaGio = decimal.Parse(GiaNgay.Trim(','));
+                loaiPhong.TenLPH = TenLP;
+                loaiPhong.SoGiuong = int.Parse(SoGiuong);
+                loaiPhong.SoNguoiToiDa = int.Parse(SoNguoi);
+                loaiPhong.GiaGio = decimal.Parse(GiaGio.Trim(','));
                 loaiPhong.GiaNgay = decimal.Parse(GiaNgay.Trim(','));
                 LoaiPhongBUS.Instance.AddOrUpdate(loaiPhong);
                 CTMessageBox.Show("Cập nhật thông tin thành công.", "Thông báo",

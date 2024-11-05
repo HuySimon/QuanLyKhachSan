@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HotelManagement.BUS;
+using DocumentFormat.OpenXml.Drawing.Charts;
 
 namespace HotelManagement.GUI
 {
@@ -17,7 +18,7 @@ namespace HotelManagement.GUI
     {
         private Image LP = Properties.Resources.LoaiPhong;
         private Image edit = Properties.Resources.edit;
-        //private Image delete = Properties.Resources.delete;
+        private Image delete = Properties.Resources.delete;
         private Image details = Properties.Resources.details;
         private List<LoaiPhong> loaiPhongs;
         private FormMain formMain;
@@ -35,9 +36,15 @@ namespace HotelManagement.GUI
             this.taiKhoan1 = taiKhoan;
         }
 
-        /*private void CTButtonThemLoaiPhong_Click(object sender, EventArgs e)
+        private void CTButtonThemLoaiPhong_Click(object sender, EventArgs e)
         {
+            if (taiKhoan1.CapDoQuyen == 1)
+            {
+                CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             FormBackground formBackground = new FormBackground(formMain);
+
             try
             {
                 using (FormThemLoaiPhong formThemLoaiPhong = new FormThemLoaiPhong())
@@ -49,12 +56,17 @@ namespace HotelManagement.GUI
                     formBackground.Dispose();
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(ex.Message, "THÔNG BÁO");
+                CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally { formBackground.Dispose(); }
-        }*/
+            finally
+            {
+                LoadAllDataGrid();
+                formBackground.Dispose();
+            }
+        }
 
         private void FormDanhSachLoaiPhong_Load(object sender, EventArgs e)
         {
@@ -85,7 +97,7 @@ namespace HotelManagement.GUI
                 grid.Rows.Clear();
                 foreach(LoaiPhong loaiPhong in this.loaiPhongs)
                 {
-                    grid.Rows.Add(LP, loaiPhong.MaLPH, loaiPhong.TenLPH, loaiPhong.SoGiuong, loaiPhong.SoNguoiToiDa, loaiPhong.GiaNgay.ToString("#,#"), loaiPhong.GiaGio.ToString("#,#"), details, edit);
+                    grid.Rows.Add(LP, loaiPhong.MaLPH, loaiPhong.TenLPH, loaiPhong.SoGiuong, loaiPhong.SoNguoiToiDa, loaiPhong.GiaNgay.ToString("#,#"), loaiPhong.GiaGio.ToString("#,#"), details, edit, delete);
                 }    
             }
             catch(Exception ex)
@@ -136,6 +148,7 @@ namespace HotelManagement.GUI
             //                MessageBoxButtons.OK, MessageBoxIcon.Error);
             //}
         }
+      
 
         private void grid_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -198,6 +211,39 @@ namespace HotelManagement.GUI
                         formBackground.Dispose(); 
                     }
                 }
+
+                if (x == 9)
+                {
+                    if (taiKhoan1.CapDoQuyen == 1)
+                    {
+                        CTMessageBox.Show("Bạn không có quyền thực hiện thao tác này.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    FormBackground formBackground = new FormBackground(formMain);
+                    try
+                    {
+                        string MaLP = grid.Rows[y].Cells[1].Value.ToString();
+                        string TenLP = grid.Rows[y].Cells[2].Value.ToString();
+                        DialogResult result = CTMessageBox.Show("Bạn có chắc chắn muốn xóa loại phòng " + TenLP + " không?", "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (result == DialogResult.Yes)
+                        {
+                            LoaiPhong loaiPhong = LoaiPhongBUS.Instance.getLoaiPhong(MaLP);
+                            loaiPhong.DaXoa = true;
+                            LoaiPhongBUS.Instance.AddOrUpdate(loaiPhong);
+                            CTMessageBox.Show("Xóa loại phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadAllDataGrid();
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        CTMessageBox.Show("Đã xảy ra lỗi! Vui lòng thử lại.", "Thông báo",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    finally
+                    {
+                        formBackground.Dispose();
+                    }
+                }
             }
         }
 
@@ -237,6 +283,11 @@ namespace HotelManagement.GUI
         private void grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             grid.Cursor = Cursors.Default;
+        }
+
+        private void grid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

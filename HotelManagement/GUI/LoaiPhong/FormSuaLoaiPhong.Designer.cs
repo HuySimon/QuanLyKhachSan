@@ -204,7 +204,7 @@
             this.ctTextBoxSoNguoi.PasswordChar = false;
             this.ctTextBoxSoNguoi.PlaceholderColor = System.Drawing.Color.DimGray;
             this.ctTextBoxSoNguoi.PlaceholderText = "Số người tối đa";
-            this.ctTextBoxSoNguoi.ReadOnly = true;
+            this.ctTextBoxSoNguoi.ReadOnly = false;
             this.ctTextBoxSoNguoi.Size = new System.Drawing.Size(250, 35);
             this.ctTextBoxSoNguoi.TabIndex = 6;
             this.ctTextBoxSoNguoi.Texts = "";
@@ -227,7 +227,7 @@
             this.CTTextBoxSoGiuong.PasswordChar = false;
             this.CTTextBoxSoGiuong.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxSoGiuong.PlaceholderText = "Số giường";
-            this.CTTextBoxSoGiuong.ReadOnly = true;
+            this.CTTextBoxSoGiuong.ReadOnly = false;
             this.CTTextBoxSoGiuong.Size = new System.Drawing.Size(250, 35);
             this.CTTextBoxSoGiuong.TabIndex = 5;
             this.CTTextBoxSoGiuong.Texts = "";
@@ -250,7 +250,7 @@
             this.CTTextBoxTenLoaiPhong.PasswordChar = false;
             this.CTTextBoxTenLoaiPhong.PlaceholderColor = System.Drawing.Color.DimGray;
             this.CTTextBoxTenLoaiPhong.PlaceholderText = "Nhập tên loại phòng";
-            this.CTTextBoxTenLoaiPhong.ReadOnly = true;
+            this.CTTextBoxTenLoaiPhong.ReadOnly = false;
             this.CTTextBoxTenLoaiPhong.Size = new System.Drawing.Size(250, 35);
             this.CTTextBoxTenLoaiPhong.TabIndex = 4;
             this.CTTextBoxTenLoaiPhong.Texts = "";
