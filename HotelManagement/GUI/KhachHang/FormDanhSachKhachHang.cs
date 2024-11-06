@@ -251,5 +251,52 @@ namespace HotelManagement.GUI
         {
             grid.Cursor = Cursors.Default;
         }
+
+        private void buttonImport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Tạo OpenFileDialog để chọn tệp Excel
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
+                openFileDialog.Title = "Chọn file Excel";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string file = openFileDialog.FileName;
+                    // Gọi hàm ImportFormExcelToDataTable để lấy dữ liệu từ Excel vào DataTable
+                    DataTable dataTable = KhachHangBUS.Instance.ImportFormExcelToDataTable(file);
+                    // Duyệt qua DataTable và chuyển đổi thành danh sách các đối tượng Phong
+                    List<KhachHang> importedKHs = new List<KhachHang>();
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        KhachHang kh = new KhachHang()
+                        {
+                            MaKH = row["MaKH"].ToString(),
+                            TenKH = row["TenKH"].ToString(),
+                            SDT = row["SDT"].ToString(),
+                            CCCD_Passport = row["CCCD/Passport"].ToString(),
+                            QuocTich = row["QuocTich"].ToString(),
+                            GioiTinh = row["GioiTinh"].ToString(),
+                            DaXoa = Convert.ToBoolean(row["DaXoa"])
+                        };
+                        importedKHs.Add(kh);
+                    }
+                    // Kiểm tra và lưu dữ liệu vào cơ sở dữ liệu
+                    foreach (var kh in importedKHs)
+                    {
+                        KhachHangBUS.Instance.UpdateOrAdd(kh);
+                    }
+                    LoadAllGrid();
+                    //LoadGrid();
+                    CTMessageBox.Show("Nhập file thành công.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

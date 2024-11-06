@@ -49,6 +49,7 @@ namespace HotelManagement.GUI
             this.ctPanel1 = new CTPanel.CTPanel();
             this.buttonExport = new HotelManagement.CTControls.CTButton();
             this.CTTextBoxTimKhachHangTheoTen = new HotelManagement.CTControls.CTTextBox();
+            this.buttonImport = new HotelManagement.CTControls.CTButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
@@ -155,6 +156,7 @@ namespace HotelManagement.GUI
             // 
             this.Column1.FillWeight = 50F;
             this.Column1.HeaderText = "";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -163,6 +165,7 @@ namespace HotelManagement.GUI
             // 
             this.Column2.FillWeight = 175F;
             this.Column2.HeaderText = "Mã khách hàng";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
@@ -170,6 +173,7 @@ namespace HotelManagement.GUI
             // 
             this.Column3.FillWeight = 200F;
             this.Column3.HeaderText = "Họ và tên";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -178,6 +182,7 @@ namespace HotelManagement.GUI
             // 
             this.Column4.FillWeight = 200F;
             this.Column4.HeaderText = "CCCD/Passport";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -186,6 +191,7 @@ namespace HotelManagement.GUI
             // 
             this.Column5.FillWeight = 150F;
             this.Column5.HeaderText = "Số điện thoại";
+            this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
             this.Column5.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -194,6 +200,7 @@ namespace HotelManagement.GUI
             // 
             this.Column6.FillWeight = 150F;
             this.Column6.HeaderText = "Quốc tịch";
+            this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
@@ -201,6 +208,7 @@ namespace HotelManagement.GUI
             // 
             this.Column7.FillWeight = 150F;
             this.Column7.HeaderText = "Giới tính";
+            this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
@@ -217,6 +225,7 @@ namespace HotelManagement.GUI
             this.Column8.DefaultCellStyle = dataGridViewCellStyle7;
             this.Column8.FillWeight = 50F;
             this.Column8.HeaderText = "Sửa";
+            this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
             // 
@@ -233,6 +242,7 @@ namespace HotelManagement.GUI
             this.Column9.DefaultCellStyle = dataGridViewCellStyle8;
             this.Column9.FillWeight = 50F;
             this.Column9.HeaderText = "Xóa";
+            this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
@@ -292,7 +302,7 @@ namespace HotelManagement.GUI
             this.CTTextBoxTimKhachHangTheoTen.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.CTTextBoxTimKhachHangTheoTen.PlaceholderText = "Nhập tên khách hàng cần tìm";
             this.CTTextBoxTimKhachHangTheoTen.ReadOnly = false;
-            this.CTTextBoxTimKhachHangTheoTen.Size = new System.Drawing.Size(279, 36);
+            this.CTTextBoxTimKhachHangTheoTen.Size = new System.Drawing.Size(279, 43);
             this.CTTextBoxTimKhachHangTheoTen.TabIndex = 4;
             this.CTTextBoxTimKhachHangTheoTen.TabStop = false;
             this.CTTextBoxTimKhachHangTheoTen.Texts = "";
@@ -300,11 +310,34 @@ namespace HotelManagement.GUI
             this.CTTextBoxTimKhachHangTheoTen._TextChanged += new System.EventHandler(this.CTTextBoxTimKhachHangTheoTen__TextChanged);
             this.CTTextBoxTimKhachHangTheoTen.Load += new System.EventHandler(this.CTTextBoxTimKhachHangTheoTen_Load);
             // 
+            // buttonImport
+            // 
+            this.buttonImport.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonImport.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+            this.buttonImport.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+            this.buttonImport.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+            this.buttonImport.BorderRadius = 10;
+            this.buttonImport.BorderSize = 0;
+            this.buttonImport.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonImport.FlatAppearance.BorderSize = 0;
+            this.buttonImport.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImport.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonImport.ForeColor = System.Drawing.Color.Black;
+            this.buttonImport.Location = new System.Drawing.Point(673, 30);
+            this.buttonImport.Name = "buttonImport";
+            this.buttonImport.Size = new System.Drawing.Size(150, 40);
+            this.buttonImport.TabIndex = 32;
+            this.buttonImport.Text = "Nhập file Excel";
+            this.buttonImport.TextColor = System.Drawing.Color.Black;
+            this.buttonImport.UseVisualStyleBackColor = false;
+            this.buttonImport.Click += new System.EventHandler(this.buttonImport_Click);
+            // 
             // FormDanhSachKhachHang
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.ClientSize = new System.Drawing.Size(1260, 833);
+            this.Controls.Add(this.buttonImport);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.ctPanel1);
             this.Controls.Add(this.buttonExport);
@@ -340,5 +373,6 @@ namespace HotelManagement.GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewImageColumn Column8;
         private System.Windows.Forms.DataGridViewImageColumn Column9;
+        private CTControls.CTButton buttonImport;
     }
 }
