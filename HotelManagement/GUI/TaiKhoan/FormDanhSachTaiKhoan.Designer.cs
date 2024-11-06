@@ -46,6 +46,7 @@
             this.Column7 = new System.Windows.Forms.DataGridViewImageColumn();
             this.ctPanel1 = new CTPanel.CTPanel();
             this.buttonExport = new HotelManagement.CTControls.CTButton();
+            this.buttonImportExcel = new HotelManagement.CTControls.CTButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
@@ -102,7 +103,7 @@
             this.CTTextBoxTimTheoTenTaiKhoan.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.CTTextBoxTimTheoTenTaiKhoan.PlaceholderText = "Nhập tên tài khoản cần tìm";
             this.CTTextBoxTimTheoTenTaiKhoan.ReadOnly = false;
-            this.CTTextBoxTimTheoTenTaiKhoan.Size = new System.Drawing.Size(244, 36);
+            this.CTTextBoxTimTheoTenTaiKhoan.Size = new System.Drawing.Size(244, 43);
             this.CTTextBoxTimTheoTenTaiKhoan.TabIndex = 12;
             this.CTTextBoxTimTheoTenTaiKhoan.TabStop = false;
             this.CTTextBoxTimTheoTenTaiKhoan.Texts = "";
@@ -176,6 +177,7 @@
             // 
             this.Column1.FillWeight = 50F;
             this.Column1.HeaderText = "";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -184,6 +186,7 @@
             // 
             this.Column2.FillWeight = 175F;
             this.Column2.HeaderText = "Tên tài khoản";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -192,6 +195,7 @@
             // 
             this.Column3.FillWeight = 225F;
             this.Column3.HeaderText = "Họ và tên NV";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
@@ -200,6 +204,7 @@
             // 
             this.Column4.FillWeight = 150F;
             this.Column4.HeaderText = "Cấp độ quyền";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             // 
@@ -210,6 +215,7 @@
             this.Column6.DefaultCellStyle = dataGridViewCellStyle2;
             this.Column6.FillWeight = 50F;
             this.Column6.HeaderText = "Sửa";
+            this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
@@ -220,6 +226,7 @@
             this.Column7.DefaultCellStyle = dataGridViewCellStyle3;
             this.Column7.FillWeight = 50F;
             this.Column7.HeaderText = "Xóa";
+            this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
@@ -259,11 +266,34 @@
             this.buttonExport.UseVisualStyleBackColor = false;
             this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
             // 
+            // buttonImportExcel
+            // 
+            this.buttonImportExcel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.buttonImportExcel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+            this.buttonImportExcel.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+            this.buttonImportExcel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(192)))), ((int)(((byte)(47)))));
+            this.buttonImportExcel.BorderRadius = 10;
+            this.buttonImportExcel.BorderSize = 0;
+            this.buttonImportExcel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.buttonImportExcel.FlatAppearance.BorderSize = 0;
+            this.buttonImportExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonImportExcel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonImportExcel.ForeColor = System.Drawing.Color.Black;
+            this.buttonImportExcel.Location = new System.Drawing.Point(672, 30);
+            this.buttonImportExcel.Name = "buttonImportExcel";
+            this.buttonImportExcel.Size = new System.Drawing.Size(150, 40);
+            this.buttonImportExcel.TabIndex = 33;
+            this.buttonImportExcel.Text = "Nhập file Excel";
+            this.buttonImportExcel.TextColor = System.Drawing.Color.Black;
+            this.buttonImportExcel.UseVisualStyleBackColor = false;
+            this.buttonImportExcel.Click += new System.EventHandler(this.buttonImportExcel_Click);
+            // 
             // FormDanhSachTaiKhoan
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.ClientSize = new System.Drawing.Size(1260, 833);
+            this.Controls.Add(this.buttonImportExcel);
             this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.ctPanel1);
@@ -296,5 +326,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewImageColumn Column6;
         private System.Windows.Forms.DataGridViewImageColumn Column7;
+        private CTControls.CTButton buttonImportExcel;
     }
 }

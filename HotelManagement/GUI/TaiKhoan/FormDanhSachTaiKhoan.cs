@@ -226,5 +226,49 @@ namespace HotelManagement.GUI
         {
             grid.Cursor = Cursors.Default;
         }
+
+        private void buttonImportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Tạo OpenFileDialog để chọn tệp Excel
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
+                openFileDialog.Title = "Chọn file Excel";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string file = openFileDialog.FileName;
+                    // Gọi hàm ImportFormExcelToDataTable để lấy dữ liệu từ Excel vào DataTable
+                    DataTable dataTable = TaiKhoanBUS.Instance.ImportFormExcelToDataTable(file);
+                    // Duyệt qua DataTable và chuyển đổi thành danh sách các đối tượng Phong
+                    List<TaiKhoan> importedTKs = new List<TaiKhoan>();
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        TaiKhoan tk = new TaiKhoan()
+                        {
+                            TenTK = row["TenTK"].ToString(),
+                            Password = row["Password"].ToString(),
+                            CapDoQuyen = Convert.ToInt32(row["DonGia"]),
+                            MaNV = row["MaNV"].ToString(),
+                            DaXoa = Convert.ToBoolean(row["DaXoa"])
+                        };
+                        importedTKs.Add(tk);
+                    }
+                    // Kiểm tra và lưu dữ liệu vào cơ sở dữ liệu
+                    foreach (var tk in importedTKs)
+                    {
+                        TaiKhoanBUS.Instance.AddOrUpdateTK(tk);
+                    }
+                    LoadAllGrid();
+                    CTMessageBox.Show("Nhập file thành công.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
