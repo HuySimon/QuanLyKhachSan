@@ -1,4 +1,5 @@
-﻿using HotelManagement.DTO;
+﻿using DocumentFormat.OpenXml.Math;
+using HotelManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
@@ -63,7 +64,6 @@ namespace HotelManagement.DAO
                 taiKhoan.DaXoa = false;
                 db.TaiKhoans.AddOrUpdate(taiKhoan);
                 db.SaveChanges();
-                instance = null;
             }
             catch(Exception)
             {
