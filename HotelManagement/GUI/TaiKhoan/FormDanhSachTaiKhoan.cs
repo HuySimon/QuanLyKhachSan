@@ -44,7 +44,6 @@ namespace HotelManagement.GUI
                     formThemTaiKhoan.ShowDialog();
                     formBackground.Dispose();
                 }
-                LoadAllGrid();
             }
             catch (Exception)
             {
@@ -249,7 +248,7 @@ namespace HotelManagement.GUI
                         {
                             TenTK = row["TenTK"].ToString(),
                             Password = row["Password"].ToString(),
-                            CapDoQuyen = Convert.ToInt32(row["DonGia"]),
+                            CapDoQuyen = Convert.ToInt32(row["CapDoQuyen"]),
                             MaNV = row["MaNV"].ToString(),
                             DaXoa = Convert.ToBoolean(row["DaXoa"])
                         };

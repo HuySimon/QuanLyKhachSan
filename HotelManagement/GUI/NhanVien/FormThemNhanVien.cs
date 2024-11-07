@@ -255,7 +255,7 @@ namespace HotelManagement.GUI
         {
             
             string HoTen = CTTextBoxNhapHoTen.Texts;
-            string ChucVu = CTTextBoxNhapChucVu.Texts;
+            string ChucVu = ComboBoxChucVu.Texts;
             string Luong = CTTextBoxLuong.Texts;
             string SDT = ctTextBoxSDT.Texts;
             string CCCD = CTTextBoxNhapCCCD.Texts;
@@ -342,7 +342,5 @@ namespace HotelManagement.GUI
         {
 
         }
-
-
     }
 }

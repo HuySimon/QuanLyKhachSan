@@ -60,7 +60,6 @@ namespace HotelManagement.GUI
         private void LoadForm()
         {
             this.CTTextBoxNhapCCCD.RemovePlaceholder();
-            this.CTTextBoxNhapChucVu.RemovePlaceholder();
             this.ctTextBoxEmail.RemovePlaceholder();
             this.ctTextBoxSDT.RemovePlaceholder();
             this.CTTextBoxDiaChi.RemovePlaceholder();
@@ -69,7 +68,7 @@ namespace HotelManagement.GUI
 
             this.CTTextBoxNhapCCCD.Texts = this.nhanVien.CCCD;
             this.ComboBoxGioiTinh.Texts = "  " + this.nhanVien.GioiTinh;
-            this.CTTextBoxNhapChucVu.Texts = this.nhanVien.ChucVu;
+            this.ComboBoxChucVu.Texts = this.nhanVien.ChucVu;
             this.ctDatePicker1.Value = this.nhanVien.NgaySinh;
             this.ctTextBoxEmail.Texts = this.nhanVien.Email;
             this.ctTextBoxSDT.Texts = this.nhanVien.SDT;
@@ -239,7 +238,7 @@ namespace HotelManagement.GUI
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
             string HoTen = CTTextBoxNhapHoTen.Texts;
-            string ChucVu = CTTextBoxNhapChucVu.Texts;
+            string ChucVu = ComboBoxChucVu.Texts;
             string Luong = CTTextBoxLuong.Texts;
             string SDT = ctTextBoxSDT.Texts;
             string CCCD = CTTextBoxNhapCCCD.Texts;

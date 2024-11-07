@@ -250,6 +250,7 @@ namespace HotelManagement.GUI
             try
             {
                 TaiKhoan taiKhoan = new TaiKhoan();
+                Console.WriteLine(CapDoQuyen + "afadfdf");
                 taiKhoan.TenTK=TenTK;
                 taiKhoan.Password = MK;
                 taiKhoan.MaNV=MaNV;

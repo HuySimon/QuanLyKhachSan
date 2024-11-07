@@ -111,7 +111,7 @@ namespace HotelManagement.BUS
                 if (dt != null && dt.Rows.Count > 0)
                 {
                     DataView dv = dt.DefaultView;
-                    dv.Sort = "MaNV ASC";
+                    dv.Sort = "TenTK ASC";
                     sortedTable = dv.ToTable();
                 }
             }
