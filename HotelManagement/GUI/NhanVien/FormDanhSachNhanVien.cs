@@ -276,5 +276,55 @@ namespace HotelManagement.GUI
         {
             grid.Cursor = Cursors.Default;
         }
+
+        private void buttonImportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Tạo OpenFileDialog để chọn tệp Excel
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
+                openFileDialog.Title = "Chọn file Excel";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string file = openFileDialog.FileName;
+                    // Gọi hàm ImportFormExcelToDataTable để lấy dữ liệu từ Excel vào DataTable
+                    DataTable dataTable = NhanVienBUS.Instance.ImportFormExcelToDataTable(file);
+                    // Duyệt qua DataTable và chuyển đổi thành danh sách các đối tượng Phong
+                    List<NhanVien> importedNVs = new List<NhanVien>();
+                    foreach (DataRow row in dataTable.Rows)
+                    {
+                        NhanVien nv = new NhanVien()
+                        {
+                            MaNV = row["MaNV"].ToString(),
+                            TenNV = row["TenNV"].ToString(),
+                            ChucVu = row["ChucVu"].ToString(),
+                            Luong = Convert.ToDecimal(row["Luong"]),
+                            SDT = row["SDT"].ToString(),
+                            CCCD = row["CCCD"].ToString(),
+                            NgaySinh = Convert.ToDateTime(row["NgaySinh"]),
+                            GioiTinh = row["GioiTinh"].ToString(),
+                            DiaChi = row["DiaChi"].ToString(),
+                            Email = row["Email"].ToString(),
+                            DaXoa = Convert.ToBoolean(row["DaXoa"])
+                        };
+                        importedNVs.Add(nv);
+                    }
+                    // Kiểm tra và lưu dữ liệu vào cơ sở dữ liệu
+                    foreach (var nv in importedNVs)
+                    {
+                        NhanVienBUS.Instance.UpdateOrInsert(nv);
+                    }
+                    LoadAllGrid();
+                    CTMessageBox.Show("Nhập file thành công.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
