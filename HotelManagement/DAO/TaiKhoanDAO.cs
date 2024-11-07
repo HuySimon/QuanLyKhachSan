@@ -1,4 +1,5 @@
-﻿using HotelManagement.DTO;
+﻿using DocumentFormat.OpenXml.Math;
+using HotelManagement.DTO;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
@@ -59,11 +60,17 @@ namespace HotelManagement.DAO
         {
             try
             {
+                var nhanVien = db.NhanViens.Where(nv => nv.MaNV == taiKhoan.MaNV).FirstOrDefault();
+
+                if (nhanVien == null)
+                {
+                    throw new Exception("không tim thay" + nhanVien.MaNV);
+                }    
+                
                 taiKhoan.NhanVien = db.NhanViens.Find(taiKhoan.MaNV);
                 taiKhoan.DaXoa = false;
                 db.TaiKhoans.AddOrUpdate(taiKhoan);
                 db.SaveChanges();
-                instance = null;
             }
             catch(Exception)
             {

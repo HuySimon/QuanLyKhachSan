@@ -231,10 +231,11 @@ namespace HotelManagement.GUI
         }
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
-            string MaNV = comboBoxMaNV.Text;
+            string MaNV = comboBoxMaNV.SelectedItem.ToString().Trim();
             string TenTK = CTTextBoxNhapTenTaiKhoan.Texts;
             string MK = CTTextBoxNhapMatKhau.Texts;
             string CapDoQuyen = comboBoxCapDoQuyen.Texts;
+
             if (MaNV == "  Mã nhân viên" || TenTK == "" || MK == "" || CapDoQuyen == "  Cấp độ quyền")
             {
                 CTMessageBox.Show("Vui lòng nhập đầy đủ thông tin tài khoản.", "Thông báo",
@@ -260,6 +261,7 @@ namespace HotelManagement.GUI
                     taiKhoan.CapDoQuyen = 2;
                 else
                     taiKhoan.CapDoQuyen = 1;
+
                 TaiKhoanBUS.Instance.AddOrUpdateTK(taiKhoan);
 
                 CTMessageBox.Show("Thêm thông tin thành công.", "Thông báo",
