@@ -60,13 +60,6 @@ namespace HotelManagement.DAO
         {
             try
             {
-                var nhanVien = db.NhanViens.Where(nv => nv.MaNV == taiKhoan.MaNV).FirstOrDefault();
-
-                if (nhanVien == null)
-                {
-                    throw new Exception("không tim thay" + nhanVien.MaNV);
-                }    
-                
                 taiKhoan.NhanVien = db.NhanViens.Find(taiKhoan.MaNV);
                 taiKhoan.DaXoa = false;
                 db.TaiKhoans.AddOrUpdate(taiKhoan);
