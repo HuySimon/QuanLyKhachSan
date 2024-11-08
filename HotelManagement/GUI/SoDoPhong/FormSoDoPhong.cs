@@ -202,15 +202,15 @@ namespace HotelManagement.GUI
         private void CTRadioButtonPhongTrong_CheckedChanged(object sender, EventArgs e)
         {
             // Huy comments
-            // SetAppear();
-            //this.label1.Hide();
-            //this.panelSoDoPhong.Hide();
-            //LoadAddLoaiPhong();
-            //LoadCheckBoxLoaiPhong();
-            //LoadCheckBoxTTDD();
-            //this.label1.Show();
-            //this.panelSoDoPhong.Show();
-            //LoadPhong(phongs);
+            SetAppear();
+            this.label1.Hide();
+            this.panelSoDoPhong.Hide();
+            LoadAddLoaiPhong();
+            LoadCheckBoxLoaiPhong();
+            LoadCheckBoxTTDD();
+            this.label1.Show();
+            this.panelSoDoPhong.Show();
+            LoadPhong(phongs);
             // Huy Comment
         }
 

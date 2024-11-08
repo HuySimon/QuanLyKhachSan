@@ -168,7 +168,7 @@
             this.comboBoxCapDoQuyen.Items.AddRange(new object[] {
             "  Admin",
             "  Quản lý",
-            "  Lễ tân"});
+            "  Tiếp tân"});
             this.comboBoxCapDoQuyen.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(235)))), ((int)(((byte)(243)))));
             this.comboBoxCapDoQuyen.ListTextColor = System.Drawing.Color.Black;
             this.comboBoxCapDoQuyen.Location = new System.Drawing.Point(106, 290);

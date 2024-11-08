@@ -251,10 +251,17 @@ namespace HotelManagement.GUI
             try
             {
                 TaiKhoan taiKhoan = new TaiKhoan();
-                Console.WriteLine(CapDoQuyen + "afadfdf");
                 taiKhoan.TenTK=TenTK;
                 taiKhoan.Password = MK;
                 taiKhoan.MaNV=MaNV;
+
+                NhanVien nhanVien = NhanVienBUS.Instance.GetNhanVien(MaNV);
+                if (!nhanVien.ChucVu.Trim().ToLower().Equals(CapDoQuyen.Trim().ToLower()))
+                {
+                    CTMessageBox.Show("Nhân viên được chọn có chức vụ không phù hợp.", "Thông báo",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
                 if (CapDoQuyen == "  Admin")
                     taiKhoan.CapDoQuyen = 3;
@@ -267,6 +274,7 @@ namespace HotelManagement.GUI
 
                 CTMessageBox.Show("Thêm thông tin thành công.", "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 this.Close();
             }
             catch (Exception)
