@@ -1,5 +1,4 @@
-CREATE DATABASE HotelManagement
-GO
+
 USE HotelManagement
 GO
 SET DATEFORMAT DMY
@@ -189,6 +188,9 @@ BEGIN
 	BEGIN
 		UPDATE CTDP
 		SET "DonGia"= @GiaNgay
+		WHERE @MaCTDP = MaCTDP
+		UPDATE CTDP
+		SET "TheoGio"= 0
 		WHERE @MaCTDP = MaCTDP
 		UPDATE CTDP
 		SET "ThanhTien"= @KhoangTGNgay * @GiaNgay

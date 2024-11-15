@@ -62,10 +62,18 @@ namespace HotelManagement.DAO
                 db.SaveChanges();
             
         }
-        public List<KhachHang> FindKhachHangWithName(string TenKH)
+        public List<KhachHang> FindKhachHangWithName(string searchTerm)
         {
 
-                return db.KhachHangs.Where(p => p.TenKH.Contains(TenKH) && p.DaXoa == false).ToList();
+                return db.KhachHangs
+                    .Where(p => p.TenKH.Contains(searchTerm) ||
+                                p.MaKH.Contains(searchTerm) ||
+                                p.SDT.Contains(searchTerm) ||
+                                p.CCCD_Passport.Contains(searchTerm) ||
+                                p.QuocTich.Contains(searchTerm) ||
+                                p.GioiTinh.Contains(searchTerm) && 
+                                p.DaXoa == false)
+                    .ToList();
             
         }
         public string GetMaKHNext()

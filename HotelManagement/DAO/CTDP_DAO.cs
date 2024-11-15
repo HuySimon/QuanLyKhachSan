@@ -71,6 +71,23 @@ namespace HotelManagement.DAO
                 return ctdp;
             
         }
+
+        public CTDP FindCTDPByIdPT(string MaPT, string maPH)
+        {
+            HotelDTO db = new HotelDTO();
+            CTDP listCTDP;
+            listCTDP = db.CTDPs.Where(p => p.MaPT == MaPT && p.MaPH == maPH && p.DaXoa == false).FirstOrDefault();
+            return listCTDP;
+        }
+
+        public CTDP FindCTDPByMaPT(string MaPT)
+        {
+            HotelDTO db = new HotelDTO();
+            CTDP listCTDP;
+            listCTDP = db.CTDPs.Where(p => p.MaPT == MaPT && p.DaXoa == false).FirstOrDefault();
+            return listCTDP;
+        }
+
         public List<CTDP> getCTDPonTime(DateTime Checkin, DateTime Checkout, List<CTDP> DSPhongThem)
         {
                 

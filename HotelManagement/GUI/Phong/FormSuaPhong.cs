@@ -238,7 +238,7 @@ namespace HotelManagement.GUI
             string DonDep = comboBoxDonDep.Texts;
             string LoaiPhong = comboBoxLoaiPhong.Texts;
             string GhiChu = ctTextBoxGhiChu.Texts;
-            if (TinhTrang == "Tình trạng phòng" || DonDep == "Tình trạng dọn dẹp" || LoaiPhong == "Loại phòng" || GhiChu == "")
+            if (TinhTrang == "Tình trạng phòng" || DonDep == "Tình trạng dọn dẹp" || LoaiPhong == "Loại phòng")
             {
                 CTMessageBox.Show("Vui lòng nhập đầy đủ thông tin phòng.", "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);

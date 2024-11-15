@@ -32,6 +32,15 @@ namespace HotelManagement.BUS
         {
             return CTDP_DAO.Instance.FindCTDP(MaPhong, currentTime);
         }
+
+        public CTDP FindCTDPByMaPT(string MaPT) {
+            return CTDP_DAO.Instance.FindCTDPByMaPT(MaPT);
+        }
+
+        public CTDP FindCTDPByIdPT(string MaPT, string maPH) {
+            return CTDP_DAO.Instance.FindCTDPByIdPT(MaPT, maPH);
+        }
+
         public List<CTDP> getCTDPonTime(DateTime Checkin, DateTime Checkout, List<CTDP> DSPhongThem)
         {
             return CTDP_DAO.Instance.getCTDPonTime(Checkin, Checkout, DSPhongThem);

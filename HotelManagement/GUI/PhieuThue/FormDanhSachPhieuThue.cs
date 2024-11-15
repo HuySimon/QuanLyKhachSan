@@ -86,7 +86,9 @@ namespace HotelManagement.GUI
                 this.grid.Rows.Clear();
                 foreach (PhieuThue phieuThue in phieuThues)
                 {
-                    grid.Rows.Add(new object[] { PT, phieuThue.MaPT,phieuThue.KhachHang.TenKH,phieuThue.NgPT.ToString("dd/MM/yyyy"),phieuThue.NhanVien.TenNV,details});
+                    CTDP cTDP = CTDP_BUS.Instance.FindCTDPByMaPT(phieuThue.MaPT);
+                    if (cTDP != null)
+                        grid.Rows.Add(new object[] { PT, phieuThue.MaPT,phieuThue.KhachHang.TenKH,phieuThue.NgPT.ToString("dd/MM/yyyy"),phieuThue.NhanVien.TenNV,details});
                 }
             }
             catch(Exception ex)
@@ -196,6 +198,23 @@ namespace HotelManagement.GUI
         private void grid_CellMouseLeave(object sender, DataGridViewCellEventArgs e)
         {
             grid.Cursor = Cursors.Default;      
-        }   
+        }
+
+        private void ctDatePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime dateTime = ctDatePicker1.Value;
+            string searchTerm = ctTextBox1.Texts;
+
+            if (searchTerm == string.Empty)
+            {
+                phieuThues = PhieuThueBUS.Instance.GetPhieuThuesWithDate(dateTime);
+                LoadDataGrid();
+            }
+            else
+            {
+                phieuThues = PhieuThueBUS.Instance.GetPhieuThuesWithDateAndName(dateTime, searchTerm);
+                LoadDataGrid();
+            }
+        }
     }
 }

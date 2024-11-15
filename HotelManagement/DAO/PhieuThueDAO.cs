@@ -23,7 +23,7 @@ namespace HotelManagement.DAO
         private PhieuThueDAO() { }
         public List<PhieuThue> GetPhieuThues()
         {
-            return db.PhieuThues.ToList();
+            return db.PhieuThues.Where(p => p.DaXoa == false).ToList();
         }
         public PhieuThue GetPhieuThue(string MaPT)
         {
@@ -47,10 +47,39 @@ namespace HotelManagement.DAO
             }
 
         }
-        public List<PhieuThue> GetPhieuThuesWithNameCus(string name)
+        public List<PhieuThue> GetPhieuThuesWithNameCus(string searchTerm)
         {
-            return db.PhieuThues.Where(p => p.KhachHang.TenKH.Contains(name)).ToList();
+          
+            return db.PhieuThues.Where(p =>
+                (p.MaPT.Contains(searchTerm) ||
+                    p.KhachHang.TenKH.Contains(searchTerm) ||
+                    p.NhanVien.TenNV.Contains(searchTerm)) &&
+                    p.DaXoa == false
+            ).ToList();
+            
         }
+
+        public List<PhieuThue> GetPhieuThuesWithDate(DateTime dateTime)
+        {
+            return db.PhieuThues.Where(p => ( 
+                p.NgPT.Month == dateTime.Month && 
+                p.NgPT.Year == dateTime.Year && 
+                p.NgPT.Day == dateTime.Day && 
+                p.DaXoa == false)).ToList();
+        }
+
+        public List<PhieuThue> GetPhieuThuesWithDateAndName(DateTime dateTime, string name)
+        {
+            return db.PhieuThues.Where(p => (
+                (p.MaPT.Contains(name) ||
+                p.KhachHang.TenKH.Contains(name) ||
+                p.NhanVien.TenNV.Contains(name)) &&
+                p.NgPT.Month == dateTime.Month &&
+                p.NgPT.Year == dateTime.Year &&
+                p.NgPT.Day == dateTime.Day &&
+                p.DaXoa == false)).ToList();
+        }
+
         public string GetMaPTNext()
         {
             List<PhieuThue> PT = db.PhieuThues.ToList();
