@@ -37,5 +37,13 @@ namespace HotelManagement.BUS
         {
             return PhieuThueDAO.Instance.GetMaPTNext();
         }
+        public List<PhieuThue> GetPhieuThuesWithDate(DateTime date)
+        {
+            return PhieuThueDAO.Instance.GetPhieuThuesWithDate(date);
+        }
+        public List<PhieuThue> GetPhieuThuesWithDateAndName(DateTime date, string name)
+        {
+            return PhieuThueDAO.Instance.GetPhieuThuesWithDateAndName(date, name);
+        }
     }
 }

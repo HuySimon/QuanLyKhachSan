@@ -102,9 +102,9 @@
             this.CTTextBoxTimTheoTenNhanVien.Padding = new System.Windows.Forms.Padding(40, 7, 7, 7);
             this.CTTextBoxTimTheoTenNhanVien.PasswordChar = false;
             this.CTTextBoxTimTheoTenNhanVien.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.CTTextBoxTimTheoTenNhanVien.PlaceholderText = "Nhập tên nhân viên cần tìm";
+            this.CTTextBoxTimTheoTenNhanVien.PlaceholderText = "Nhập thông tin cần tìm";
             this.CTTextBoxTimTheoTenNhanVien.ReadOnly = false;
-            this.CTTextBoxTimTheoTenNhanVien.Size = new System.Drawing.Size(264, 43);
+            this.CTTextBoxTimTheoTenNhanVien.Size = new System.Drawing.Size(264, 36);
             this.CTTextBoxTimTheoTenNhanVien.TabIndex = 15;
             this.CTTextBoxTimTheoTenNhanVien.TabStop = false;
             this.CTTextBoxTimTheoTenNhanVien.Texts = "";

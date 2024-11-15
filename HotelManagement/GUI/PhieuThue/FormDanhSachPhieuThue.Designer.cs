@@ -43,6 +43,8 @@
             this.Column7 = new System.Windows.Forms.DataGridViewImageColumn();
             this.ctPanel1 = new CTPanel.CTPanel();
             this.buttonExport = new HotelManagement.CTControls.CTButton();
+            this.ctDatePicker1 = new HotelManagement.CTControls.CTDatePicker();
+            this.LabelChonNgay = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).BeginInit();
             this.SuspendLayout();
@@ -65,7 +67,7 @@
             this.ctTextBox1.Padding = new System.Windows.Forms.Padding(40, 7, 7, 7);
             this.ctTextBox1.PasswordChar = false;
             this.ctTextBox1.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.ctTextBox1.PlaceholderText = "Nhập tên khách hàng cần tìm";
+            this.ctTextBox1.PlaceholderText = "Nhập thông tin cần tìm";
             this.ctTextBox1.ReadOnly = false;
             this.ctTextBox1.Size = new System.Drawing.Size(291, 36);
             this.ctTextBox1.TabIndex = 0;
@@ -249,6 +251,34 @@
             this.buttonExport.UseVisualStyleBackColor = false;
             this.buttonExport.Click += new System.EventHandler(this.buttonExport_Click);
             // 
+            // ctDatePicker1
+            // 
+            this.ctDatePicker1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(96)))), ((int)(((byte)(116)))));
+            this.ctDatePicker1.BorderSize = 2;
+            this.ctDatePicker1.CalendarFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctDatePicker1.CustomFormat = "dd/MM/yyyy";
+            this.ctDatePicker1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ctDatePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.ctDatePicker1.Location = new System.Drawing.Point(354, 31);
+            this.ctDatePicker1.MinimumSize = new System.Drawing.Size(4, 35);
+            this.ctDatePicker1.Name = "ctDatePicker1";
+            this.ctDatePicker1.Size = new System.Drawing.Size(163, 35);
+            this.ctDatePicker1.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
+            this.ctDatePicker1.TabIndex = 40;
+            this.ctDatePicker1.TextColor = System.Drawing.Color.Black;
+            this.ctDatePicker1.ValueChanged += new System.EventHandler(this.ctDatePicker1_ValueChanged);
+            // 
+            // LabelChonNgay
+            // 
+            this.LabelChonNgay.AutoSize = true;
+            this.LabelChonNgay.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelChonNgay.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LabelChonNgay.Location = new System.Drawing.Point(369, 21);
+            this.LabelChonNgay.Name = "LabelChonNgay";
+            this.LabelChonNgay.Size = new System.Drawing.Size(65, 15);
+            this.LabelChonNgay.TabIndex = 41;
+            this.LabelChonNgay.Text = "Chọn ngày";
+            // 
             // FormDanhSachPhieuThue
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -256,6 +286,8 @@
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(236)))), ((int)(((byte)(236)))));
             this.ClientSize = new System.Drawing.Size(1260, 833);
+            this.Controls.Add(this.LabelChonNgay);
+            this.Controls.Add(this.ctDatePicker1);
             this.Controls.Add(this.buttonExport);
             this.Controls.Add(this.grid);
             this.Controls.Add(this.ctPanel1);
@@ -273,6 +305,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grid)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -290,5 +323,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewImageColumn Column7;
+        private CTControls.CTDatePicker ctDatePicker1;
+        private System.Windows.Forms.Label LabelChonNgay;
     }
 }

@@ -52,11 +52,17 @@ namespace HotelManagement.DAO
             db.SaveChanges();
             db.Dispose();
         }    
-        public List<HoaDon> FindHoaDonWith_CCCD(string cccd)
+        public List<HoaDon> FindHoaDonWith_CCCD(string searchTerm)
         {
             HotelDTO db = new HotelDTO();
 
-            return db.HoaDons.Where(p => p.CTDP.PhieuThue.KhachHang.CCCD_Passport.StartsWith(cccd)).ToList();
+            return db.HoaDons
+                    .Where(p => 
+                           p.CTDP.PhieuThue.KhachHang.CCCD_Passport.StartsWith(searchTerm) ||
+                           p.MaHD.Contains(searchTerm) ||
+                           p.NhanVien.TenNV.Contains(searchTerm) ||
+                           p.CTDP.PhieuThue.KhachHang.TenKH.Contains(searchTerm))
+                    .ToList();
         }
         public List<HoaDon> FindHoaDonWith_Date(DateTime dateTime)
         {

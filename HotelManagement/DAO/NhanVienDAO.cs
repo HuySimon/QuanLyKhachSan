@@ -53,10 +53,20 @@ namespace HotelManagement.DAO
                 db.SaveChanges();
             
         }
-        public List<NhanVien> GetNhanViensWithName(string tenNV)
+        public List<NhanVien> GetNhanViensWithName(string searchTerm)
         {
 
-                return db.NhanViens.Where(p => p.TenNV.Contains(tenNV) && p.DaXoa == false).ToList();
+                return db.NhanViens
+                         .Where(p => p.TenNV.Contains(searchTerm) ||
+                                     p.MaNV.Contains(searchTerm) ||
+                                     p.ChucVu.Contains(searchTerm) ||
+                                     p.DiaChi.Contains(searchTerm) ||
+                                     p.SDT.Contains(searchTerm) ||
+                                     p.Email.Contains(searchTerm) ||
+                                     p.CCCD.Contains(searchTerm) ||
+                                     p.GioiTinh.Contains(searchTerm) &&
+                                     p.DaXoa == false)
+                         .ToList();
             
         }
         public string GetMaNVNext()

@@ -24,6 +24,7 @@ namespace HotelManagement.GUI
         private int borderSize = 2;
         private Color borderColor = Color.White;
         private Image delete = Properties.Resources.delete;
+        private Image edit = Properties.Resources.edit;
         private PhieuThue phieuThue;
         //Constructor
         public FormChiTietPhieuThue()
@@ -248,7 +249,8 @@ namespace HotelManagement.GUI
                     TrangThai = "Hoàn thành";
                 else
                     TrangThai = cTDP.TrangThai;
-                grid.Rows.Add(new object[] { cTDP.MaPH, cTDP.CheckIn.ToString("dd/MM/yyyy hh:mm:ss"), cTDP.CheckOut.ToString("dd/MM/yyyy hh:mm:ss"), TrangThai, this.delete }) ;
+
+                    grid.Rows.Add(new object[] { cTDP.MaPH, cTDP.CheckIn.ToString("dd/MM/yyyy hh:mm:ss"), cTDP.CheckOut.ToString("dd/MM/yyyy hh:mm:ss"), TrangThai, this.delete, this.edit }) ;
             }    
         }    
         private void grid_CellMouseMove(object sender, DataGridViewCellMouseEventArgs e)
@@ -277,7 +279,7 @@ namespace HotelManagement.GUI
                 {
                     try
                     {
-                        DateTime date = DateTime.ParseExact(grid.Rows[y].Cells[1].Value.ToString(), "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
+                        //DateTime date = DateTime.ParseExact(grid.Rows[y].Cells[1].Value.ToString(), "dd-MM-yyyy HH:mm:ss", CultureInfo.InvariantCulture);
                         CTDP cTDP = CTDP_BUS.Instance.GetCTDPs().Where(p => p.MaPT == phieuThue.MaPT).ToList()[y];
                         if(cTDP.TrangThai == "Đã xong" )
                         {
@@ -306,6 +308,26 @@ namespace HotelManagement.GUI
                     }
                 }
             }
+
+            if (y >= 0 && x == 5)
+            {
+                try
+                {
+                    string maPH = grid.Rows[y].Cells[0].Value.ToString();
+                    using (FormSuaDatPhong formSuaDatPhong = new FormSuaDatPhong(null, this.phieuThue, maPH))
+                    {
+                        formSuaDatPhong.ShowDialog();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    CTMessageBox.Show(ex.Message, "Thông báo",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                finally
+                {
+                }
+            }    
         }
 
         private void CTButtonThemPT_Click(object sender, EventArgs e)
@@ -331,5 +353,6 @@ namespace HotelManagement.GUI
         {
             this.Close();
         }
+      
     }
 }
