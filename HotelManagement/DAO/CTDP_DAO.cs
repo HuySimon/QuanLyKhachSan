@@ -42,7 +42,13 @@ namespace HotelManagement.DAO
                     checkout = ctdp.CheckOut;
                     timeSpan = checkout.Subtract(checkin);
                 }
-              return timeSpan.Days;
+
+            if (timeSpan.Days == 0 && timeSpan.TotalHours >= 6)
+            {
+                return 1;
+            }
+
+            return timeSpan.Days;
         }
         public int getKhoangTGTheoGio(string MaCTDP)
         {

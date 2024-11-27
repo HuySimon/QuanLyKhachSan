@@ -17,7 +17,7 @@ namespace HotelManagement.GUI.ThongKe
     public partial class FormThongKe : Form
     {
         private FormMain formMain;
-        private ThongKeDAO thongKe;
+        private ThongKeBUS thongKe;
         public FormThongKe()
         {
             InitializeComponent();
@@ -31,7 +31,7 @@ namespace HotelManagement.GUI.ThongKe
             Button7Ngay.Select();
             Button7Ngay.BackColor = Color.FromArgb(30, 119, 148);
             Button7Ngay.ForeColor = Color.White;
-            thongKe = new ThongKeDAO();
+            thongKe = new ThongKeBUS();
             LoadData();
         }
 
@@ -120,43 +120,43 @@ namespace HotelManagement.GUI.ThongKe
                     chartDoanhThuThue.Series[1].Points.Clear();
                     chartDoanhThuThue.Series[2].Points.Clear();
                     chartDoanhThuThue.Series[3].Points.Clear();
-                    foreach (var item in thongKe.DoanhThuThuongDonList)
+                    foreach (var item in thongKe.GetDoanhThuThuongDon())
                     {
                         chartDoanhThuThue.Series[0].Points.AddXY(item.Date, item.TotalAmount);
                     }
-                    foreach (var item in thongKe.DoanhThuThuongDoiList)
+                    foreach (var item in thongKe.GetDoanhThuThuongDoi())
                     {
                         chartDoanhThuThue.Series[1].Points.AddXY(item.Date, item.TotalAmount);
                     }
-                    foreach (var item in thongKe.DoanhThuVipDonList)
+                    foreach (var item in thongKe.GetDoanhThuVipDon())
                     {
                         chartDoanhThuThue.Series[2].Points.AddXY(item.Date, item.TotalAmount);
                     }
-                    foreach (var item in thongKe.DoanhThuVipDoiList)
+                    foreach (var item in thongKe.GetDoanhThuVipDoi())
                     {
                         chartDoanhThuThue.Series[3].Points.AddXY(item.Date, item.TotalAmount);
                     }
 
-                    chartSoPhongDat.DataSource = thongKe.SoPhongDatList;
+                    chartSoPhongDat.DataSource = thongKe.GetSoPhongDat();
                     chartSoPhongDat.Series[0].XValueMember = "Date";
                     chartSoPhongDat.Series[0].YValueMembers = "TotalAmount";
                     chartSoPhongDat.DataBind();
 
-                    chartDichVu.DataSource = thongKe.TopDichVuList;
+                    chartDichVu.DataSource = thongKe.GetTopDichVu();
                     chartDichVu.Series[0].XValueMember = "Key";
                     chartDichVu.Series[0].YValueMembers = "Value";
                     chartDichVu.DataBind();
 
-                    DoanhThuThue.Text = thongKe.TongDoanhThuThue.ToString("#,#");
-                    DoanhThuDichVu.Text = thongKe.TongDoanhThuDichVu.ToString("#,#");
-                    SoPhongDat.Text = thongKe.SoPhongDat.ToString();
+                    DoanhThuThue.Text = thongKe.GetTongDoanhThuThue().ToString("#,#");
+                    DoanhThuDichVu.Text = thongKe.GetTongDoanhThuDichVu().ToString("#,#");
+                    SoPhongDat.Text = thongKe.GetSoPhongDatNum().ToString();
 
-                    TenLoaiPhongDoanhThuCaoNhat.Text = thongKe.TenLoaiPhongDoanhThuCaoNhat;
-                    DoanhThuLoaiPhongCaoNhat.Text = thongKe.DoanhThuLoaiPhongCaoNhat.ToString("#,#");
-                    TenLoaiPhongDatNhieuNhat.Text = thongKe.TenLoaiPhongDuocDatNhieuNhat;
-                    SoLanDatLoaiPhongNhieuNhat.Text = thongKe.SoLanLoaiPhongDatNhieuNhat.ToString();
-                    TenDichVuDoanhThuCaoNhat.Text = thongKe.TenDichVuDoanhThuCaoNhat;
-                    DoanhThuDichVuCaoNhat.Text = thongKe.DoanhThuDichVuCaoNhat.ToString("#,#");
+                    TenLoaiPhongDoanhThuCaoNhat.Text = thongKe.GetTenLoaiPhongDoanhThuCaoNhat();
+                    DoanhThuLoaiPhongCaoNhat.Text = thongKe.GetDoanhThuLoaiPhongCaoNhat().ToString("#,#");
+                    TenLoaiPhongDatNhieuNhat.Text = thongKe.GetTenLoaiPhongDuocDatNhieuNhat();
+                    SoLanDatLoaiPhongNhieuNhat.Text = thongKe.GetSoLanLoaiPhongDatNhieuNhat().ToString();
+                    TenDichVuDoanhThuCaoNhat.Text = thongKe.GetTenDichVuDoanhThuCaoNhat();
+                    DoanhThuDichVuCaoNhat.Text = thongKe.GetDoanhThuDichVuCaoNhat().ToString("#,#");
 
                 }
                 else

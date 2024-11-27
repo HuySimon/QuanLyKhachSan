@@ -500,7 +500,6 @@ namespace HotelManagement.GUI
                 listPhongDaDat.CheckIn = this.CheckIn;
                 listPhongDaDat.CheckOut = this.CheckOut;
                 listPhongDaDat.MaPT = phieuThue.MaPT;
-                listPhongDaDat.TrangThai = "Đã đặt";
                 listPhongDaDat.DaXoa = false;
                 CTDP_BUS.Instance.UpdateOrAddCTDP(listPhongDaDat);
                 
@@ -521,7 +520,7 @@ namespace HotelManagement.GUI
         {
             TextBoxType.Instance.TextBoxNotNumber(e);
         }
-
+  
         private void CTTextBoxNhapCCCD__TextChanged(object sender, EventArgs e)
         {
             TextBox textBox = sender as TextBox;
