@@ -51,6 +51,11 @@ namespace HotelManagement.GUI.ThongKe
         }
         private void ButtonTuyChon_Click(object sender, EventArgs e)
         {
+            if (dtpNgayKT.Value.Date < dtpNgayBD.Value.Date)
+            {
+                CTMessageBox.Show("Ngày kết thúc không được nhỏ hơn ngày bắt đầu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             setButtonNormal();
             ButtonOK.Enabled = true;
             ButtonTuyChon.BackColor = Color.FromArgb(30, 119, 148);
@@ -64,8 +69,8 @@ namespace HotelManagement.GUI.ThongKe
             ButtonHomNay.BackColor = Color.FromArgb(30, 119, 148);
             ButtonHomNay.ForeColor = Color.White;
             ButtonOK.Enabled = false;
-            dtpNgayBD.Value = DateTime.Now.Date;
-            dtpNgayKT.Value = DateTime.Now.Date;
+            dtpNgayBD.Value = DateTime.Today.Date;
+            dtpNgayKT.Value = DateTime.Now;
             LoadData();
         }
 

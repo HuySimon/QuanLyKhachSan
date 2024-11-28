@@ -1,4 +1,5 @@
-﻿using HotelManagement.DAO;
+﻿using HotelManagement.CTControls;
+using HotelManagement.DAO;
 using HotelManagement.DTO.ThongKe;
 using System;
 using System.Collections.Generic;

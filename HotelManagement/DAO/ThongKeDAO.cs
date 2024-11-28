@@ -420,14 +420,14 @@ namespace HotelManagement.DAO
                     command.Connection = connection;
                     command.Parameters.Add("@fromDate", System.Data.SqlDbType.DateTime).Value = startDate;
                     command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = endDate;
-                    command.CommandText = @"  select top 5 TenDV, SUM(SL) as SL
-                                              from CTDV inner join HoaDon
-                                              on CTDV.MaCTDP = HoaDon.MaCTDP
-                                              inner join DichVu
-                                              on DichVu.MaDV = CTDV.MaDV
-                                              where HoaDon.DaXoa = 0 and NgHD between @fromDate and @toDate and HoaDon.TrangThai = N'Đã thanh toán'
-                                              group by DichVu.MaDV, TenDV, SL, NgHD 
-                                              order by NgHD asc";
+                    command.CommandText = @"  select top 5 TenDV, sum(SL)
+                                                from CTDV inner join HoaDon
+                                                on CTDV.MaCTDP = HoaDon.MaCTDP
+                                                inner join DichVu
+                                                on DichVu.MaDV = CTDV.MaDV
+                                                where HoaDon.DaXoa = 0 and NgHD between @fromDate and @toDate and HoaDon.TrangThai = N'Đã thanh toán'
+                                                group by DichVu.MaDV, TenDV
+                                                order by sum(SL) desc";
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
@@ -489,14 +489,14 @@ namespace HotelManagement.DAO
                     command.Connection = connection;
                     command.Parameters.Add("@fromDate", System.Data.SqlDbType.DateTime).Value = startDate;
                     command.Parameters.Add("@toDate", System.Data.SqlDbType.DateTime).Value = endDate;
-                    command.CommandText = @"  select top 1 TenDV, SUM(CTDV.DonGia)*SL as DoanhThu
-                                              from DichVu inner join CTDV
-                                              on DichVu.MaDV = CTDV.MaDV
-                                              inner join HoaDon
-                                              on CTDV.MaCTDP = HoaDon.MaCTDP
-                                              where HoaDon.DaXoa = 0 and NgHD between @fromDate and @toDate and HoaDon.TrangThai = N'Đã thanh toán'
-                                              group by TenDV, DichVu.MaDV, SL
-                                              order by SUM(CTDV.DonGia)*SL desc";
+                    command.CommandText = @"  select top 1 TenDV, SUM(ThanhTien) as DoanhThu
+                                                from DichVu inner join CTDV
+                                                on DichVu.MaDV = CTDV.MaDV
+                                                inner join HoaDon
+                                                on CTDV.MaCTDP = HoaDon.MaCTDP
+                                                where HoaDon.DaXoa = 0 and NgHD between @fromDate and @toDate and HoaDon.TrangThai = N'Đã thanh toán'
+                                                group by DichVu.MaDV, TenDV, CTDV.DonGia
+                                                order by SUM(ThanhTien) desc";
                     reader = command.ExecuteReader();
                     while (reader.Read())
                     {
