@@ -11,13 +11,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HotelManagement.BUS;
 using HotelManagement.CTControls;
+using HotelManagement.DTO.ThongKe;
 
 namespace HotelManagement.GUI.ThongKe
 {
     public partial class FormThongKe : Form
     {
         private FormMain formMain;
-        private ThongKeBUS thongKe;
+        private ThongKeBUS tkBUS;
         public FormThongKe()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace HotelManagement.GUI.ThongKe
             Button7Ngay.Select();
             Button7Ngay.BackColor = Color.FromArgb(30, 119, 148);
             Button7Ngay.ForeColor = Color.White;
-            thongKe = new ThongKeBUS();
+            tkBUS = new ThongKeBUS();
             LoadData();
         }
 
@@ -103,6 +104,11 @@ namespace HotelManagement.GUI.ThongKe
 
         private void ButtonOK_Click(object sender, EventArgs e)
         {
+            if (dtpNgayKT.Value.Date < dtpNgayBD.Value.Date)
+            {
+                CTMessageBox.Show("Ngày kết thúc không được nhỏ hơn ngày bắt đầu", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             setButtonNormal();
             ButtonTuyChon.BackColor = Color.FromArgb(30, 119, 148);
             ButtonTuyChon.ForeColor = Color.White;
@@ -111,62 +117,76 @@ namespace HotelManagement.GUI.ThongKe
         
         private void LoadData()
         {
+            bool dateRangeChanged = tkBUS.IsDateRangeChanged(dtpNgayBD.Value, dtpNgayKT.Value);
+            if (!dateRangeChanged)
+                return;
+
             try
             {
-                var refreshDate = thongKe.LoadData(dtpNgayBD.Value, dtpNgayKT.Value);
-                if (refreshDate == true)
+                DoanhThu doanhThuThuongDon = tkBUS.GetDoanhThuThuongDon(dtpNgayBD.Value, dtpNgayKT.Value);
+                DoanhThu doanhThuThuongDoi = tkBUS.GetDoanhThuThuongDoi(dtpNgayBD.Value, dtpNgayKT.Value);
+                DoanhThu doanhThuVipDon = tkBUS.GetDoanhThuVipDon(dtpNgayBD.Value, dtpNgayKT.Value);
+                DoanhThu doanhThuVipDoi = tkBUS.GetDoanhThuVipDoi(dtpNgayBD.Value, dtpNgayKT.Value);
+                decimal doanhThuDichVu = tkBUS.GetDoanhThuDichVu(dtpNgayBD.Value, dtpNgayKT.Value);
+                SoPhongDat soPhongDat = tkBUS.GetSoPhongDat(dtpNgayBD.Value, dtpNgayKT.Value);
+                List<KeyValuePair<string, int>> dichVu = tkBUS.GetDichVuBieuDo(dtpNgayBD.Value, dtpNgayKT.Value);
+                Top1DoanhThu loaiPhongDoanhThuCaoNhat = tkBUS.GetLoaiPhongDoanhThuCaoNhat(dtpNgayBD.Value, dtpNgayKT.Value);
+                Top1DoanhThu dichVuDoanhThuCaoNhat = tkBUS.GetDichVuDoanhThuCaoNhat(dtpNgayBD.Value, dtpNgayKT.Value);
+                Top1LoaiPhong loaiPhongDatNhieuNhat = tkBUS.GetLoaiPhongDatNhieuNhat(dtpNgayBD.Value, dtpNgayKT.Value);
+
+                chartDoanhThuThue.Series[0].Points.Clear();
+                chartDoanhThuThue.Series[1].Points.Clear();
+                chartDoanhThuThue.Series[2].Points.Clear();
+                chartDoanhThuThue.Series[3].Points.Clear();
+
+                foreach (DoanhThuTheoNgay item in doanhThuThuongDon.List)
                 {
-                    chartDoanhThuThue.Series[0].Points.Clear();
-                    chartDoanhThuThue.Series[1].Points.Clear();
-                    chartDoanhThuThue.Series[2].Points.Clear();
-                    chartDoanhThuThue.Series[3].Points.Clear();
-                    foreach (var item in thongKe.GetDoanhThuThuongDon())
-                    {
-                        chartDoanhThuThue.Series[0].Points.AddXY(item.Date, item.TotalAmount);
-                    }
-                    foreach (var item in thongKe.GetDoanhThuThuongDoi())
-                    {
-                        chartDoanhThuThue.Series[1].Points.AddXY(item.Date, item.TotalAmount);
-                    }
-                    foreach (var item in thongKe.GetDoanhThuVipDon())
-                    {
-                        chartDoanhThuThue.Series[2].Points.AddXY(item.Date, item.TotalAmount);
-                    }
-                    foreach (var item in thongKe.GetDoanhThuVipDoi())
-                    {
-                        chartDoanhThuThue.Series[3].Points.AddXY(item.Date, item.TotalAmount);
-                    }
-
-                    chartSoPhongDat.DataSource = thongKe.GetSoPhongDat();
-                    chartSoPhongDat.Series[0].XValueMember = "Date";
-                    chartSoPhongDat.Series[0].YValueMembers = "TotalAmount";
-                    chartSoPhongDat.DataBind();
-
-                    chartDichVu.DataSource = thongKe.GetTopDichVu();
-                    chartDichVu.Series[0].XValueMember = "Key";
-                    chartDichVu.Series[0].YValueMembers = "Value";
-                    chartDichVu.DataBind();
-
-                    DoanhThuThue.Text = thongKe.GetTongDoanhThuThue().ToString("#,#");
-                    DoanhThuDichVu.Text = thongKe.GetTongDoanhThuDichVu().ToString("#,#");
-                    SoPhongDat.Text = thongKe.GetSoPhongDatNum().ToString();
-
-                    TenLoaiPhongDoanhThuCaoNhat.Text = thongKe.GetTenLoaiPhongDoanhThuCaoNhat();
-                    DoanhThuLoaiPhongCaoNhat.Text = thongKe.GetDoanhThuLoaiPhongCaoNhat().ToString("#,#");
-                    TenLoaiPhongDatNhieuNhat.Text = thongKe.GetTenLoaiPhongDuocDatNhieuNhat();
-                    SoLanDatLoaiPhongNhieuNhat.Text = thongKe.GetSoLanLoaiPhongDatNhieuNhat().ToString();
-                    TenDichVuDoanhThuCaoNhat.Text = thongKe.GetTenDichVuDoanhThuCaoNhat();
-                    DoanhThuDichVuCaoNhat.Text = thongKe.GetDoanhThuDichVuCaoNhat().ToString("#,#");
-
+                    chartDoanhThuThue.Series[0].Points.AddXY(item.Date, item.TotalAmount);
                 }
-                else
+                foreach (DoanhThuTheoNgay item in doanhThuThuongDoi.List)
                 {
-                    Console.WriteLine("View not loaded, same query");
+                    chartDoanhThuThue.Series[1].Points.AddXY(item.Date, item.TotalAmount);
                 }
+                foreach (DoanhThuTheoNgay item in doanhThuVipDon.List)
+                {
+                    chartDoanhThuThue.Series[2].Points.AddXY(item.Date, item.TotalAmount);
+                }
+                foreach (DoanhThuTheoNgay item in doanhThuVipDoi.List)
+                {
+                    chartDoanhThuThue.Series[3].Points.AddXY(item.Date, item.TotalAmount);
+                }
+
+                chartSoPhongDat.DataSource = soPhongDat.List;
+                chartSoPhongDat.Series[0].XValueMember = "Date";
+                chartSoPhongDat.Series[0].YValueMembers = "TotalAmount";
+                chartSoPhongDat.DataBind();
+
+                chartDichVu.DataSource = dichVu;
+                chartDichVu.Series[0].XValueMember = "Key";
+                chartDichVu.Series[0].YValueMembers = "Value";
+                chartDichVu.DataBind();
+
+                decimal tongDoanhThuThue =
+                    doanhThuThuongDon.Total +
+                    doanhThuThuongDoi.Total +
+                    doanhThuVipDon.Total +
+                    doanhThuVipDoi.Total;
+                DoanhThuThue.Text = tongDoanhThuThue.ToString("#,#");
+                DoanhThuDichVu.Text = doanhThuDichVu.ToString("#,#");
+                SoPhongDat.Text = soPhongDat.Total.ToString();
+                
+                TenLoaiPhongDoanhThuCaoNhat.Text = loaiPhongDoanhThuCaoNhat.Name;
+                DoanhThuLoaiPhongCaoNhat.Text = loaiPhongDoanhThuCaoNhat.Value.ToString("#,#");
+
+                TenLoaiPhongDatNhieuNhat.Text = loaiPhongDatNhieuNhat.Name;
+                SoLanDatLoaiPhongNhieuNhat.Text = loaiPhongDatNhieuNhat.Value.ToString();
+
+                TenDichVuDoanhThuCaoNhat.Text = dichVuDoanhThuCaoNhat.Name;
+                DoanhThuDichVuCaoNhat.Text = dichVuDoanhThuCaoNhat.Value.ToString("#,#");
             }
-            catch(Exception ex)
+            catch (Exception e)
             {
-                CTMessageBox.Show(ex.Message,"Lỗi",MessageBoxButtons.OK,MessageBoxIcon.Error);    
+                CTMessageBox.Show(e.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
