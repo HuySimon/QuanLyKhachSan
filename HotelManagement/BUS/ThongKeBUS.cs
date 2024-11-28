@@ -1,4 +1,5 @@
 ﻿using HotelManagement.DAO;
+using HotelManagement.DTO.ThongKe;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,100 +10,75 @@ namespace HotelManagement.BUS
 {
     internal class ThongKeBUS
     {
-        private ThongKeDAO thongKeDAO;
+        private readonly ThongKeDAO thongKeDAO;
+        public DateTime CurrentStartDate { get; set; }
+        public DateTime CurrentEndDate { get; set; }
 
         public ThongKeBUS()
         {
             thongKeDAO = new ThongKeDAO();
         }
 
-        // Load dữ liệu thống kê từ DAO
-        public bool LoadData(DateTime ngayBD, DateTime ngayKT)
+        public bool IsDateRangeChanged(DateTime startDate, DateTime endDate)
         {
-            return thongKeDAO.LoadData(ngayBD, ngayKT);
+            DateTime start = new DateTime(startDate.Year, startDate.Month, startDate.Day, 0, 0, 0);
+            DateTime end = new DateTime(endDate.Year, endDate.Month, endDate.Day, 23, 59, 59);
+
+            bool changed = !start.Equals(this.CurrentStartDate) || !end.Equals(this.CurrentEndDate);
+
+            if (changed)
+            {
+                this.CurrentStartDate = start;
+                this.CurrentEndDate = end;
+            }
+
+            return changed;
         }
 
-        // Lấy các dữ liệu thống kê doanh thu theo ngày
-        public List<ThongKeDAO.DoanhThuTheoNgay> GetDoanhThuThuongDon()
+        public DoanhThu GetDoanhThuThuongDon(DateTime startDate, DateTime endDate)
         {
-            return thongKeDAO.DoanhThuThuongDonList;
+            return thongKeDAO.GetDoanhThuThuongDon(startDate, endDate);
+        }
+        public DoanhThu GetDoanhThuThuongDoi(DateTime startDate, DateTime endDate)
+        {
+            return thongKeDAO.GetDoanhThuThuongDoi(startDate, endDate);
+        }
+        public DoanhThu GetDoanhThuVipDon(DateTime startDate, DateTime endDate)
+        {
+            return thongKeDAO.GetDoanhThuVipDon(startDate, endDate);
+        }
+        public DoanhThu GetDoanhThuVipDoi(DateTime startDate, DateTime endDate)
+        {
+            return thongKeDAO.GetDoanhThuVipDoi(startDate, endDate);
+        }
+        public decimal GetDoanhThuDichVu(DateTime startDate, DateTime endDate)
+        {
+            return thongKeDAO.GetDoanhThuDichVu(startDate, endDate);
         }
 
-        public List<ThongKeDAO.DoanhThuTheoNgay> GetDoanhThuThuongDoi()
+        public SoPhongDat GetSoPhongDat(DateTime startDate, DateTime endDate)
         {
-            return thongKeDAO.DoanhThuThuongDoiList;
+            return thongKeDAO.GetSoPhongDat(startDate, endDate);
         }
 
-        public List<ThongKeDAO.DoanhThuTheoNgay> GetDoanhThuVipDon()
+        public List<KeyValuePair<string, int>> GetDichVuBieuDo(DateTime startDate, DateTime endDate)
         {
-            return thongKeDAO.DoanhThuVipDonList;
+            return thongKeDAO.GetDichVuBieuDo(startDate, endDate);
         }
 
-        public List<ThongKeDAO.DoanhThuTheoNgay> GetDoanhThuVipDoi()
+        public Top1DoanhThu GetLoaiPhongDoanhThuCaoNhat(DateTime startDate, DateTime endDate)
         {
-            return thongKeDAO.DoanhThuVipDoiList;
+            return thongKeDAO.GetLoaiPhongDoanhThuCaoNhat(startDate, endDate);
         }
 
-        public List<ThongKeDAO.DoanhThuTheoNgay> GetDoanhThuDichVu()
+        public Top1DoanhThu GetDichVuDoanhThuCaoNhat(DateTime startDate, DateTime endDate)
         {
-            return thongKeDAO.DoanhThuDichVuList;
+            return thongKeDAO.GetDichVuDoanhThuCaoNhat(startDate, endDate);
         }
 
-        public List<ThongKeDAO.SoPhongTheoNgay> GetSoPhongDat()
+        public Top1LoaiPhong GetLoaiPhongDatNhieuNhat(DateTime startDate, DateTime endDate)
         {
-            return thongKeDAO.SoPhongDatList;
-        }
-
-        public int GetSoPhongDatNum()
-        {
-            return thongKeDAO.SoPhongDat;
-        }
-
-        public List<KeyValuePair<string, int>> GetTopDichVu()
-        {
-            return thongKeDAO.TopDichVuList;
-        }
-
-        // Lấy tổng doanh thu
-        public decimal GetTongDoanhThuThue()
-        {
-            return thongKeDAO.TongDoanhThuThue;
-        }
-
-        public decimal GetTongDoanhThuDichVu()
-        {
-            return thongKeDAO.TongDoanhThuDichVu;
-        }
-
-        // Các thông tin thống kê khác
-        public string GetTenLoaiPhongDoanhThuCaoNhat()
-        {
-            return thongKeDAO.TenLoaiPhongDoanhThuCaoNhat;
-        }
-
-        public decimal GetDoanhThuLoaiPhongCaoNhat()
-        {
-            return thongKeDAO.DoanhThuLoaiPhongCaoNhat;
-        }
-
-        public string GetTenLoaiPhongDuocDatNhieuNhat()
-        {
-            return thongKeDAO.TenLoaiPhongDuocDatNhieuNhat;
-        }
-
-        public int GetSoLanLoaiPhongDatNhieuNhat()
-        {
-            return thongKeDAO.SoLanLoaiPhongDatNhieuNhat;
-        }
-
-        public string GetTenDichVuDoanhThuCaoNhat()
-        {
-            return thongKeDAO.TenDichVuDoanhThuCaoNhat;
-        }
-
-        public decimal GetDoanhThuDichVuCaoNhat()
-        {
-            return thongKeDAO.DoanhThuDichVuCaoNhat;
+            return thongKeDAO.GetLoaiPhongDatNhieuNhat(startDate, endDate);
         }
     }
 }
