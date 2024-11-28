@@ -157,6 +157,7 @@ namespace HotelManagement.GUI
                         formChiTietPhieuThue.ShowDialog();
                         formBackground.Dispose();
                     }
+                    LoadFullDataGrid();
                 }
                 catch (Exception ex)
                 {

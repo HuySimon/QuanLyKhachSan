@@ -231,12 +231,23 @@ namespace HotelManagement.GUI
         }
         private void CTButtonCapNhat_Click(object sender, EventArgs e)
         {
-            string MaNV = comboBoxMaNV.SelectedItem.ToString().Trim();
+            string MaNV;
             string TenTK = CTTextBoxNhapTenTaiKhoan.Texts;
             string MK = CTTextBoxNhapMatKhau.Texts;
             string CapDoQuyen = comboBoxCapDoQuyen.Texts;
 
-            if (MaNV == "  Mã nhân viên" || TenTK == "" || MK == "" || CapDoQuyen == "  Cấp độ quyền")
+            if (comboBoxMaNV.SelectedItem != null)
+            {
+                MaNV = comboBoxMaNV.SelectedItem.ToString().Trim();
+            }
+            else
+            {
+                CTMessageBox.Show("Vui lòng chọn mã nhân viên.", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (TenTK == "" || MK == "" || CapDoQuyen == "  Cấp độ quyền")
             {
                 CTMessageBox.Show("Vui lòng nhập đầy đủ thông tin tài khoản.", "Thông báo",
                             MessageBoxButtons.OK, MessageBoxIcon.Error);

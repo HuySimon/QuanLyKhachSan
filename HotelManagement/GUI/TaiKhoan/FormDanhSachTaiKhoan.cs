@@ -44,6 +44,7 @@ namespace HotelManagement.GUI
                     formThemTaiKhoan.ShowDialog();
                     formBackground.Dispose();
                 }
+                LoadAllGrid();
             }
             catch (Exception)
             {
